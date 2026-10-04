@@ -47,35 +47,35 @@ const BentoHighlights = ({
           <div>
             <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
               <div className="flex items-center gap-2">
-                <Badge variant="emerald" size="sm">Active Mission · 2025-Present</Badge>
-                <span className="text-xs font-mono text-slate-400">Tech Soft @ AEON Thana Sinsap</span>
+                <Badge variant="emerald" size="sm">Active Leadership · 2026-Present</Badge>
+                <span className="text-xs font-mono text-slate-400">AEON Thana Sinsap (Thailand) PCL</span>
               </div>
-              <span className="text-xs font-mono text-cyan-400 font-semibold">Zero-Touch IaC</span>
+              <span className="text-xs font-mono text-cyan-400 font-semibold">Landing Zone & Architecture</span>
             </div>
 
             <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">
-              Enterprise Linux Administration, Cloud Automation & Security
+              Multi-Cloud Landing Zone, Architecture & Engineering Leadership
             </h3>
 
             <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed max-w-2xl">
-              Architecting zero-touch server baselines across RHEL 8/9 and Ubuntu fleets using Ansible Tower/AWX, integrating SentinelOne EDR, HashiCorp Vault secrets, and deploying containerized workloads on AWS EKS & VMware Tanzu.
+              Leading the Cloud & Automation engineering team at AEON Thana Sinsap. Designing enterprise landing zones across AWS, GCP, and Azure with transit network topologies, IAM governance, FinOps optimization, and automated infrastructure project delivery.
             </p>
 
             {/* Visual Interactive Architecture Flow Nodes */}
             <div className="mt-5 p-3.5 rounded-xl bg-slate-950/80 border border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
               <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-slate-900 text-slate-200 border border-slate-700/60">
-                <FontAwesomeIcon icon={faServer} className="text-red-400 w-3 h-3" />
-                <span>RHEL 9 / Ubuntu</span>
+                <FontAwesomeIcon icon={faCloud} className="text-cyan-400 w-3 h-3" />
+                <span>AWS · GCP · Azure</span>
               </div>
               <span className="text-cyan-400 font-bold">➔</span>
               <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-slate-900 text-cyan-300 border border-cyan-500/30">
-                <FontAwesomeIcon icon={faShieldHalved} className="text-cyan-400 w-3 h-3" />
-                <span>Ansible + Vault</span>
+                <FontAwesomeIcon icon={faShieldHalved} className="text-emerald-400 w-3 h-3" />
+                <span>Landing Zone & Guardrails</span>
               </div>
               <span className="text-cyan-400 font-bold">➔</span>
-              <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-slate-900 text-emerald-300 border border-emerald-500/30">
-                <FontAwesomeIcon icon={faCloud} className="text-emerald-400 w-3 h-3" />
-                <span>AWS EKS / Tanzu</span>
+              <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-slate-900 text-purple-300 border border-purple-500/30">
+                <FontAwesomeIcon icon={faServer} className="text-purple-400 w-3 h-3" />
+                <span>Team & Project Mgmt</span>
               </div>
             </div>
           </div>
@@ -83,7 +83,7 @@ const BentoHighlights = ({
           <div className="flex flex-wrap items-center justify-between gap-3 pt-4 mt-4 border-t border-slate-800/60 text-xs font-mono text-slate-400">
             <div className="flex items-center gap-2">
               <FontAwesomeIcon icon={faCheckCircle} className="text-emerald-400 w-3 h-3" />
-              <span>Hardened Compliance · Automated Operational Digests</span>
+              <span>Multi-Cloud Landing Zones · Project Roadmaps & FinOps</span>
             </div>
             {onExploreProjects && (
               <button

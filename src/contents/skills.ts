@@ -6,9 +6,14 @@ export const skillCategories: SkillCategory[] = [
     title: "Cloud & Container Orchestration",
     items: [
       {
-        name: "Multi-Cloud Platforms",
-        detail: "Architecture, provisioning, and operations on AWS, GCP, Microsoft Azure, and Alibaba Cloud.",
-        tools: ["AWS (EKS, IAM, VPC, S3)", "GCP (Cloud Run, Compute)", "Azure", "Alibaba Cloud"]
+        name: "Multi-Cloud Landing Zones & Architecture",
+        detail: "Enterprise landing zones, transit network topologies, IAM governance, and multi-account hierarchies across AWS, GCP, and Azure.",
+        tools: ["AWS (Transit Gateway, Organizations, EKS)", "GCP (Cloud Foundation, Shared VPC)", "Azure (Management Groups, Landing Zones)", "Terraform"]
+      },
+      {
+        name: "Team Leadership & Project Management",
+        detail: "Engineering team management, solution architecture reviews, cloud migration roadmaps, FinOps cost optimization, and stakeholder delivery.",
+        tools: ["Team Leadership", "Solution Architecture", "Project Roadmaps", "FinOps", "Agile / Sprint Planning", "Vendor Governance"]
       },
       {
         name: "Containers & K8s",

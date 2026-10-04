@@ -2,15 +2,38 @@ import type { ExperienceItem } from "../types/portfolio";
 
 export const experienceItems: ExperienceItem[] = [
   {
+    id: "aeon-assistant-manager-cloud-automation",
+    period: "August 2026 - Present",
+    role: "Assistant Manager | Team Cloud & Automation",
+    company: "AEON Thana Sinsap (Thailand) PCL",
+    location: "Bangkok, Thailand",
+    isCurrent: true,
+    link: "https://www.aeon.co.th",
+    summary: "Leading the Cloud & Automation engineering team responsible for multi-cloud enterprise landing zones (AWS, GCP, Azure), cloud architecture and solution design, project management, and automated operational governance for enterprise financial services.",
+    achievements: [
+      "Led and managed the Cloud & Automation engineering team, orchestrating strategic project delivery, architectural governance, technical reviews, and cross-functional team alignment.",
+      "Architected, designed, and deployed Enterprise Multi-Cloud Landing Zones across AWS, GCP, and Azure, establishing secure network topologies (Transit Gateway, Direct Connect, Shared VPC), IAM governance, and multi-account hierarchies.",
+      "Spearheaded cloud architecture solution design for mission-critical financial applications, ensuring zero-trust security postures, disaster recovery (DR) readiness, and high availability (99.99%).",
+      "Directed end-to-end cloud infrastructure project management: roadmaps, migration plans, budget/FinOps cost optimization, and vendor/stakeholder coordination.",
+      "Standardized Infrastructure as Code (IaC) and automation frameworks across hybrid cloud environments using Terraform, Ansible AWX, and automated CI/CD pipelines.",
+      "Supervised enterprise security compliance hardening, secrets management (HashiCorp Vault), audit governance, and automated operational observability."
+    ],
+    technologies: [
+      "Team Management", "Project Management", "Cloud Architecture", "Multi-Cloud Landing Zone",
+      "AWS (Transit Gateway, Organizations, EKS)", "GCP (Shared VPC, Cloud Foundation)", "Azure (Management Groups, Landing Zones)",
+      "Terraform", "Ansible AWX", "RHEL 8/9", "Kubernetes", "HashiCorp Vault", "FinOps", "GitLab CI/CD"
+    ]
+  },
+  {
     id: "tech-soft-aeon",
-    period: "August 2025 - Present",
+    period: "August 2025 - 31 July 2026",
     role: "Linux System Administrator | Team Cloud & Automation (AWS, GCP)",
     company: "Tech Soft Holding Co., Ltd.",
     client: "AEON Thana Sinsap (Thailand) Public Company Limited",
     location: "Bangkok, Thailand",
-    isCurrent: true,
+    isCurrent: false,
     link: "https://www.aeon.co.th",
-    summary: "Responsible for enterprise Linux system administration, cloud infrastructure support, CI/CD automation, and modern DevOps operations across enterprise financial environments.",
+    summary: "Responsible for enterprise Linux system administration, cloud infrastructure support, CI/CD automation, and modern DevOps operations onsite at AEON Thana Sinsap.",
     achievements: [
       "Automated Linux/Windows server provisioning, configuration, security hardening, compliance checks, and operational reporting using Ansible Tower/AWX, Bash, Python, and PowerShell.",
       "Managed and supported Red Hat Enterprise Linux 8/9 and Ubuntu LTS servers (patching, local repositories, services, security tools, monitoring agents, and zero-downtime troubleshooting).",

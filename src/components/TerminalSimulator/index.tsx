@@ -15,11 +15,11 @@ export interface TerminalSimulatorProps {
 const INITIAL_HISTORY: HistoryEntry[] = [
   {
     command: "whoami",
-    output: "Pasit Chatcharoenkit · Senior Cloud & DevOps Infrastructure Engineer (6+ Yrs Exp)"
+    output: "Pasit Chatcharoenkit · Assistant Manager (Cloud & Automation) @ AEON Thana Sinsap (6+ Yrs Exp)"
   },
   {
     command: "cat current-mission.txt",
-    output: "Linux System Administrator @ Tech Soft Holding (Onsite: AEON Thana Sinsap) · Leading Cloud & Automation (AWS/GCP/Ansible/Kubernetes)"
+    output: "Assistant Manager | Team Cloud & Automation @ AEON Thana Sinsap (Thailand) PCL · Leading Multi-Cloud Landing Zone (AWS, GCP, Azure), Cloud Architecture & Team Management"
   }
 ];
 
@@ -55,22 +55,22 @@ const TerminalSimulator = ({ hideWindowBar = false, className = "" }: TerminalSi
         break;
 
       case "whoami":
-        output = "Pasit Chatcharoenkit · Senior Cloud & DevOps Infrastructure Engineer with 6+ years experience across on-prem datacenter, multi-cloud (AWS, GCP, Azure, Alibaba), and AIOps automation.";
+        output = "Pasit Chatcharoenkit · Assistant Manager (Cloud & Automation) @ AEON Thana Sinsap (Thailand) PCL with 6+ years experience across multi-cloud landing zones (AWS, GCP, Azure), enterprise Linux (RHEL 8/9), team leadership, and AIOps automation.";
         break;
 
       case "skills":
         output = (
           <div className="space-y-1 text-slate-300">
-            <p>● <span className="text-cyan-300 font-semibold">Cloud & K8s:</span> AWS (EKS, IAM, VPC), GCP, Azure, Alibaba Cloud, Docker, Helm, Tanzu</p>
-            <p>● <span className="text-emerald-300 font-semibold">Linux & IaC:</span> RHEL 8/9, Ubuntu LTS, Ansible Tower/AWX, Bash, Python, PowerShell</p>
-            <p>● <span className="text-indigo-300 font-semibold">Virtualization:</span> VMware (vSphere, vSAN, NSX-T), Proxmox VE, Dell/Huawei SAN Storage</p>
-            <p>● <span className="text-purple-300 font-semibold">AI & Backend:</span> FastAPI, PostgreSQL pgvector, Qdrant, Ollama RAG, n8n, Node.js</p>
+            <p>● <span className="text-cyan-300 font-semibold">Leadership & Architecture:</span> Multi-Cloud Landing Zones (AWS/GCP/Azure), Team Mgmt, Solution Architecture, FinOps</p>
+            <p>● <span className="text-emerald-300 font-semibold">Cloud & K8s:</span> AWS (Transit Gateway, Organizations, EKS), GCP, Azure, Docker, Helm, Tanzu</p>
+            <p>● <span className="text-indigo-300 font-semibold">Linux & IaC:</span> RHEL 8/9, Ubuntu LTS, Ansible AWX, Terraform, Bash, Python, PowerShell</p>
+            <p>● <span className="text-purple-300 font-semibold">Datacenter & AI:</span> VMware vSphere/vSAN/NSX-T, Proxmox VE, SAN, DWDM, FastAPI, pgvector, Ollama</p>
           </div>
         );
         break;
 
       case "projects":
-        output = "19 Enterprise Projects active: AIOps Incident Assistant, Cisco FMC API Ingestion, Ansible Zero-Touch Baseline, APIGW (APISIX + Vault), Proxmox Private Cloud, DWDM OSN9800 Rollout...";
+        output = "19 Enterprise Projects active: Multi-Cloud Landing Zones (AWS/GCP/Azure), AIOps Incident Assistant, Cisco FMC API Ingestion, Ansible Zero-Touch Baseline, APIGW (APISIX + Vault)...";
         break;
 
       case "certs":
@@ -84,14 +84,15 @@ const TerminalSimulator = ({ hideWindowBar = false, className = "" }: TerminalSi
       case "neofetch":
         output = (
           <div className="space-y-0.5 text-xs text-slate-300">
-            <p className="text-cyan-400 font-bold">pasit@cloud-infrastructure</p>
+            <p className="text-cyan-400 font-bold">pasit@aeon-cloud-ops</p>
             <p className="text-slate-500">--------------------------</p>
-            <p><span className="text-cyan-300 font-semibold">OS:</span> Enterprise Linux (RHEL 9 / Ubuntu LTS)</p>
-            <p><span className="text-cyan-300 font-semibold">Host:</span> Hybrid Multi-Cloud (AWS EKS + Proxmox VE)</p>
-            <p><span className="text-cyan-300 font-semibold">Kernel:</span> DevOps & SRE Automation 6.0</p>
+            <p><span className="text-cyan-300 font-semibold">Title:</span> Assistant Manager (Cloud & Automation)</p>
+            <p><span className="text-cyan-300 font-semibold">Org:</span> AEON Thana Sinsap (Thailand) PCL</p>
+            <p><span className="text-cyan-300 font-semibold">Host:</span> Multi-Cloud Landing Zone (AWS / GCP / Azure)</p>
+            <p><span className="text-cyan-300 font-semibold">Kernel:</span> DevOps, SRE & Team Management 6.0</p>
             <p><span className="text-cyan-300 font-semibold">Uptime:</span> 6+ Years Continuous Learning</p>
             <p><span className="text-cyan-300 font-semibold">Shell:</span> bash / zsh / python</p>
-            <p><span className="text-cyan-300 font-semibold">Memory:</span> 19 Projects / 17 Certs / 20 Courses</p>
+            <p><span className="text-cyan-300 font-semibold">Scope:</span> Landing Zones / Architecture / Project Mgmt</p>
           </div>
         );
         break;

@@ -37,7 +37,7 @@ const Hero = ({ onExploreProjects, onExploreContact }: HeroProps) => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
               </span>
-              <span>Available for Senior DevOps & Cloud Roles</span>
+              <span>Assistant Manager · Cloud & Automation @ AEON</span>
             </div>
 
             <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/70 border border-slate-800 text-xs font-mono text-slate-400">
@@ -56,17 +56,17 @@ const Hero = ({ onExploreProjects, onExploreContact }: HeroProps) => {
 
             <div className="flex flex-wrap items-center gap-2 pt-1">
               <h2 className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400 bg-clip-text text-transparent">
-                Senior Linux SysAdmin · DevOps Engineer
+                Assistant Manager · Cloud & Automation
               </h2>
             </div>
             <p className="text-xs sm:text-sm font-mono text-slate-400">
-              Enterprise Linux (RHEL 8/9) · Multi-Cloud (AWS/GCP) · Ansible AWX · AIOps
+              Multi-Cloud Landing Zone (AWS / GCP / Azure) · Architecture & Team Management
             </p>
           </div>
 
           {/* Narrative Summary */}
           <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl font-normal">
-            Senior Infrastructure & DevOps Engineer with 6+ years architecting mission-critical systems across enterprise on-premise datacenters (SAN storage, VMware vSAN/NSX-T, DWDM optical) and cloud-native stacks (AWS, GCP, Azure, Kubernetes, zero-touch Ansible). Currently driving enterprise Linux administration and cloud automation onsite at <strong className="text-white font-semibold">AEON Thana Sinsap</strong> with Tech Soft Holding.
+            Infrastructure engineering leader and architect with 6+ years orchestrating enterprise datacenters and multi-cloud platforms. Currently serving as <strong className="text-white font-semibold">Assistant Manager - Cloud & Automation</strong> at <strong className="text-white font-semibold">AEON Thana Sinsap (Thailand) PCL</strong>, directing multi-cloud landing zones across AWS, GCP, and Azure, cloud architecture solution design, project management, and team leadership. Previously Linux System Administrator at Tech Soft Holding.
           </p>
 
           {/* Action CTAs */}
@@ -215,7 +215,7 @@ const Hero = ({ onExploreProjects, onExploreContact }: HeroProps) => {
                   {/* Floating Verified Tag on Portrait */}
                   <div className="absolute -bottom-2.5 inset-x-0 mx-auto w-fit inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/95 border border-emerald-500/60 text-[11px] font-mono text-emerald-300 shadow-xl backdrop-blur-md">
                     <FontAwesomeIcon icon={faCheckCircle} className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>Verified Infrastructure Engineer</span>
+                    <span>Assistant Manager · Cloud & Automation</span>
                   </div>
                 </div>
 
@@ -224,7 +224,7 @@ const Hero = ({ onExploreProjects, onExploreContact }: HeroProps) => {
                   {profileData.title}
                 </h3>
                 <p className="text-xs font-mono text-cyan-400 mt-0.5">
-                  Senior Linux SysAdmin · Cloud & DevOps
+                  Assistant Manager · Cloud & Automation
                 </p>
 
                 {/* Current Active Mission Capsule */}
@@ -234,20 +234,20 @@ const Hero = ({ onExploreProjects, onExploreContact }: HeroProps) => {
                       <FontAwesomeIcon icon={faBriefcase} className="w-3 h-3" />
                       <span>Current Position</span>
                     </span>
-                    <span className="text-slate-400">Aug 2025 - Present</span>
+                    <span className="text-slate-400">Aug 2026 - Present</span>
                   </div>
                   <p className="font-semibold text-white text-xs">
-                    Tech Soft Holding Co., Ltd.
+                    AEON Thana Sinsap (Thailand) PCL
                   </p>
                   <p className="text-slate-400 text-[11px] flex items-center gap-1">
                     <FontAwesomeIcon icon={faShieldHalved} className="text-cyan-400 w-2.5 h-2.5" />
-                    <span>Onsite: AEON Thana Sinsap (Thailand) PCL</span>
+                    <span>Multi-Cloud Landing Zone (AWS/GCP/Azure) · Team Mgmt</span>
                   </p>
                 </div>
 
                 {/* Key Skills Tags */}
                 <div className="flex flex-wrap justify-center gap-1.5 mt-4 pt-3 border-t border-slate-800/80 w-full">
-                  {["AWS / EKS", "RHEL 8/9", "Ansible AWX", "Vault", "VMware Tanzu", "FastAPI/AIOps"].map((skill) => (
+                  {["AWS Landing Zone", "GCP", "Azure", "Architecture", "Project Mgmt", "Team Leadership", "Ansible AWX", "RHEL 8/9"].map((skill) => (
                     <span
                       key={skill}
                       className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-slate-900 text-slate-300 border border-slate-800"

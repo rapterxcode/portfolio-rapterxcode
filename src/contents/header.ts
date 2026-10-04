@@ -4,13 +4,13 @@ import type { ProfileInfo } from "../types/portfolio";
 
 export const profileData: ProfileInfo = {
   title: "Pasit Chatcharoenkit",
-  role: "Backend Full-Stack Developer / DevOps / Cloud / Infrastructure Engineer",
-  shortBio: "Continuous learner focused on applying automation, cloud-native architectures, and DevOps practices to engineer measurable value and resilient enterprise infrastructure.",
+  role: "Assistant Manager - Cloud & Automation / Senior DevOps Infrastructure Engineer",
+  shortBio: "Engineering leader and architect specializing in multi-cloud landing zones (AWS, GCP, Azure), cloud architecture solution design, team management, and enterprise DevOps automation.",
   fullBio: [
-    "Cloud/DevOps & Infrastructure Engineer with 6+ years' extensive hands-on experience spanning enterprise on-premise platforms (servers, SAN storage, high-availability networking, virtualization) and cloud-native stacks (AWS, GCP, Azure, Alibaba Cloud, Kubernetes, and IaC automation).",
-    "Proven track record in enterprise Linux administration (RHEL 8/9, Ubuntu LTS), automated server provisioning with Ansible Tower/AWX, CI/CD pipeline automation with GitLab and Docker, security compliance hardening (SentinelOne, BigFix, HashiCorp Vault), and modern AI-assisted operations workflows (FastAPI, pgvector, Ollama, n8n)."
+    "Assistant Manager (Cloud & Automation) and Senior Infrastructure Engineer with 6+ years' extensive hands-on and leadership experience spanning enterprise on-premise platforms (servers, SAN storage, optical DWDM, virtualization) and modern multi-cloud architectures (AWS, GCP, Azure, Kubernetes, and IaC automation).",
+    "Proven track record leading engineering teams, managing cloud infrastructure projects, architecting multi-cloud enterprise landing zones across AWS, GCP, and Azure, driving zero-touch server baselines (Ansible AWX, RHEL 8/9), security governance (HashiCorp Vault, SentinelOne), and modern AI-assisted operations workflows (FastAPI, pgvector, Ollama, n8n)."
   ],
-  status: "Open to High-Impact Roles & Collaborations",
+  status: "Assistant Manager · Cloud & Automation @ AEON Thana Sinsap",
   location: "Bangkok, Thailand",
   experienceYears: "6+ Years",
   resumeFile: fileResume,

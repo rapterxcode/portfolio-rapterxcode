@@ -8,12 +8,12 @@ export const aboutData = {
       description: "Automating enterprise provisioning, configuration baselines, compliance audits, and security hardening on RHEL 8/9 and Ubuntu using Ansible Tower/AWX, Bash, Python, and PowerShell."
     },
     {
-      title: "Multi-Cloud & Container Orchestration",
-      description: "Designing and supporting workloads on AWS (EKS, IAM, VPC), GCP (Cloud Run), Azure, and Alibaba Cloud, combined with Kubernetes manifests, Helm, Docker, and VMware Tanzu."
+      title: "Multi-Cloud Landing Zone & Architecture",
+      description: "Architecting and governing enterprise landing zones across AWS, GCP, and Azure (VPC/VNet topology, transit routing, IAM governance, security baselines, and FinOps cost optimization)."
     },
     {
-      title: "HCI & Enterprise Data Center",
-      description: "Deep expertise in VMware (vSphere, vCenter, vSAN, NSX-T), Proxmox VE clustering, Dell/Huawei SAN storage arrays, LUN provisioning, zoning, and Huawei DWDM (OSN9800) transport."
+      title: "Team Leadership & Project Management",
+      description: "Leading the Cloud & Automation engineering team, managing cloud migration roadmaps, architectural reviews, vendor alignments, and cross-functional project execution."
     },
     {
       title: "Modern AI-Assisted Operations (AIOps)",
@@ -21,9 +21,9 @@ export const aboutData = {
     }
   ],
   narrative: [
-    "I am a passionate Cloud/DevOps & Infrastructure Engineer with over 6 years of hands-on expertise building and scaling reliable systems across both mission-critical on-premise data centers and modern cloud-native environments.",
-    "My journey spans the complete engineering lifecycle: from physical server racking, SAN fabric zoning, and DWDM optical transport deployment, to VMware enterprise virtualization, multi-cloud Kubernetes architectures, and zero-touch Ansible automation.",
-    "Currently at Tech Soft Holding onsite with AEON Thana Sinsap (Thailand) Public Company Limited, I focus on enterprise Linux administration, AWS/GCP cloud automation, security compliance (SentinelOne, BigFix, HashiCorp Vault), and implementing AI-driven operational workflows to maximize uptime and eliminate manual friction."
+    "I am an infrastructure engineering leader and architect with over 6 years of hands-on and managerial expertise designing, scaling, and automating mission-critical systems across both enterprise datacenters and multi-cloud environments.",
+    "My journey spans the complete engineering lifecycle: from physical datacenter deployment (SAN storage, DWDM optical transport, VMware HCI) to modern multi-cloud architectures (AWS, GCP, Azure), automated landing zone governance, and zero-touch Ansible frameworks.",
+    "Currently serving as Assistant Manager - Cloud & Automation at AEON Thana Sinsap (Thailand) Public Company Limited, I lead the Cloud & Automation team overseeing multi-cloud landing zone design (AWS, GCP, Azure), architectural solution design, project management, and automated operational pipelines. Previously, I served as Linux System Administrator at Tech Soft Holding onsite at AEON, driving zero-touch RHEL automation, security hardening, and containerized workload platforms."
   ]
 };
 
