@@ -1,38 +1,53 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primaryTitle: #fff;
-  --color-primaryContent: #000;
-  --color-primarySubcontent: #fff;
-  --color-primaryBase: #fff;
-  --color-primaryBg: #fff;
-  --color-primaryBgHover: #fff;
-  --color-primaryContentHover: #fff;  
-  --color-primaryTitleHover: #fff;
-  --color-primarySubcontentHover: #fff;
-  --color-mainBg: #181818;
+  --color-mainBg: #090D16;
+  --color-canvas: #090D16;
+  --color-surface: #0F172A;
+  --color-surfaceHover: #1E293B;
 
-  /* main text */
-  --color-mainText: #fff;
-  --color-mainTextHover: #ffe600;
+  --color-primaryText: #F8FAFC;
+  --color-secondaryText: #94A3B8;
+  --color-mutedText: #64748B;
 
-  /* main button */
-  --color-mainButtonBg: #fff;
-  --color-mainButtonBgHover: #ffd900;
-  --color-mainButtonText: #000;
-  --color-mainButtonTextHover: #000;
+  --color-accentCyan: #06B6D4;
+  --color-accentEmerald: #10B981;
+  --color-accentBlue: #38BDF8;
 
-  /* main container */
-  --color-mainContainerBg: #fff;
-  --color-mainContainerBgHover: #5a5a5a;
-  --color-mainContainerText: #fff;
-  --color-mainContainerTextHover: #5a5a5a;
+  --color-borderSubtle: rgba(255, 255, 255, 0.08);
+  --color-borderHover: rgba(6, 182, 212, 0.3);
 
-  /* main icon*/
-  --color-mainIconBg: #fff;
-  --color-mainIconBgHover: #ffd900;
+  /* Legacy tokens mapping */
+  --color-mainText: #F8FAFC;
+  --color-mainTextHover: #06B6D4;
+  --color-mainButtonBg: #06B6D4;
+  --color-mainButtonBgHover: #0891B2;
+  --color-mainButtonText: #090D16;
+  --color-mainButtonTextHover: #FFFFFF;
+  --color-mainContainerBg: rgba(15, 23, 42, 0.6);
+  --color-mainContainerBgHover: rgba(30, 41, 59, 0.75);
+  --color-mainContainerText: #F8FAFC;
+  --color-mainContainerTextHover: #F8FAFC;
+  --color-mainIconBg: #1E293B;
+  --color-mainIconBgHover: #06B6D4;
 }
 
-test {
-  color: #ffe600;
+/* Glassmorphism utility helpers */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel:hover {
+  border-color: rgba(6, 182, 212, 0.25);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.15);
+}
+
+.glow-emerald {
+  box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.15);
 }

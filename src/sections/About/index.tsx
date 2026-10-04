@@ -1,28 +1,91 @@
-import { data } from "../../contents/about";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faServer,
+  faCloud,
+  faCertificate,
+  faDiagramProject
+} from "@fortawesome/free-solid-svg-icons";
+import { aboutData } from "../../contents/about";
+import { profileData } from "../../contents/header";
 
 interface AboutProps {
-    onInit?: (sectionId: string) => void;
-    title: string;
+  onInit?: (sectionId: string) => void;
+  title?: string;
 }
 
-const About: React.FC<AboutProps> = ({ onInit , title}) => {
-    const SECTION_ID = `${title}-section`;
+const About: React.FC<AboutProps> = ({ onInit, title = "About" }) => {
+  const SECTION_ID = `${title.toLowerCase().replace(/\s+/g, "-")}-section`;
 
-    useEffect(() => {
-        if (onInit) {
-            onInit(SECTION_ID);
-        }
-    }, []);
+  useEffect(() => {
+    if (onInit) {
+      onInit(SECTION_ID);
+    }
+  }, [onInit, SECTION_ID]);
 
-    return (
-        
-        <div className="space-y-5 mb-30 px-5 scroll-m-14" id={SECTION_ID}>
-            <div className="text-mainText text-2xl font-medium">{data.title}</div>
-            <div className="text-mainText">{data.description}</div>
-        </div>
-        
-    )
-}
+  const statIcons = [faServer, faDiagramProject, faCertificate, faCloud];
+
+  return (
+    <section id={SECTION_ID} className="scroll-m-20 py-4">
+      {/* Sticky section title for mobile */}
+      <div className="sticky top-0 z-20 backdrop-blur-md bg-[#090D16]/80 py-3 mb-6 border-b border-white/5 lg:border-none lg:static lg:bg-transparent lg:py-0">
+        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white flex items-center gap-3">
+          <span className="w-2 h-2 rounded-full bg-cyan-400 glow-cyan"></span>
+          <span>{title}</span>
+        </h2>
+      </div>
+
+      {/* Bento Grid Metrics */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+        {profileData.metrics.map((metric, idx) => (
+          <div
+            key={metric.label}
+            className="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800/80 hover:border-cyan-500/30 transition-all duration-300 group"
+          >
+            <div className="flex items-center justify-between mb-1">
+              <span className="text-xs font-mono text-slate-400">{metric.label}</span>
+              <FontAwesomeIcon
+                icon={statIcons[idx]}
+                className="text-slate-600 group-hover:text-cyan-400 transition-colors w-3.5 h-3.5"
+              />
+            </div>
+            <div className="text-2xl font-bold font-mono text-cyan-300 group-hover:text-white transition-colors">
+              {metric.value}
+            </div>
+            <div className="text-[11px] text-slate-500 truncate mt-0.5">
+              {metric.sublabel}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Narrative Summary */}
+      <div className="space-y-3.5 text-slate-300 text-sm sm:text-base leading-relaxed">
+        {aboutData.narrative.map((paragraph, index) => (
+          <p key={`about-p-${index}`}>
+            {paragraph}
+          </p>
+        ))}
+      </div>
+
+      {/* Core Engineering Pillars */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6">
+        {aboutData.highlights.map((pillar, i) => (
+          <div
+            key={`pillar-${i}`}
+            className="p-4 rounded-xl bg-slate-900/40 border border-slate-800/60 hover:border-slate-700 transition-colors"
+          >
+            <h4 className="text-xs font-mono uppercase tracking-wider text-cyan-400 mb-1.5 font-semibold">
+              {pillar.title}
+            </h4>
+            <p className="text-xs text-slate-400 leading-normal">
+              {pillar.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
 
 export default About;

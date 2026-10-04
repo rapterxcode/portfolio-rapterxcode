@@ -1,85 +1,66 @@
-import './App.css'
+import { useState, useCallback } from "react";
+import LeftSection from "./sections/LeftSection";
+import type { NavItem } from "./sections/LeftSection";
+import RightSection from "./sections/RightSection";
+import { useScrollSpy } from "./hooks/useScrollSpy";
+import "./App.css";
 
-import LeftSection from './sections/LelfSection'
-import RightSection from './sections/RightSection'
-import { useState, useEffect } from 'react'
-
-interface NavItem {
-  title: string;
-  sectionId: string;
-}
+const DEFAULT_NAV_ITEMS: NavItem[] = [
+  { title: "About", sectionId: "about-section" },
+  { title: "Skills", sectionId: "skills-section" },
+  { title: "Experience", sectionId: "experience-section" },
+  { title: "Projects", sectionId: "projects-section" },
+  { title: "Certifications", sectionId: "certification-section" },
+  { title: "Education", sectionId: "education-section" },
+  { title: "Contact", sectionId: "contact-section" },
+];
 
 function App() {
-  const [sectionIds, setSectionIds] = useState<string[]>([]);
-  const [navBarItems, setNavBarItems] = useState<NavItem[]>([]);
-  const [currentSection, setCurrentSection] = useState<string>("");
+  const [navBarItems, setNavBarItems] = useState<NavItem[]>(DEFAULT_NAV_ITEMS);
+  const sectionIds = navBarItems.map((item) => item.sectionId);
+  const currentSection = useScrollSpy(sectionIds, 0.25);
 
-  const addSectionId = (sectionId: string) => {
-    //console.log(sectionId);
-    const elementId = document.getElementById(sectionId)?.id;
-    if (elementId) {
-      setSectionIds((prev) => [...new Set([...prev, elementId])]);
-    }
-    //console.log("sectionIds:",sectionIds);
-    const elementTitle = document.getElementById(sectionId)?.childNodes[0].textContent;
-    //console.log("elementTitle:",elementTitle);
-    if (elementTitle && elementId) {
-      const obj: NavItem = {title: elementTitle, sectionId: elementId};
-      setNavBarItems((prev) => {
-        if(prev.findIndex(e => e.title === obj.title) < 0) {
-          return [...prev, obj];
-        }
+  const handleRegisterSection = useCallback((sectionId: string) => {
+    setNavBarItems((prev) => {
+      if (prev.some((item) => item.sectionId === sectionId)) {
         return prev;
-      });
-    }
-    //console.log("navBarItems:",navBarItems);
-  }
-
-  const handleScroll = () => {
-    for (let index = 0; index < sectionIds.length; index++) {
-      const el = sectionIds[index];
-      console.log("scroll",el);
-      const element = document.getElementById(el);
-      if (element) {
-        const eloffsetTop = element.getClientRects()[0].y;
-        const height = element.getClientRects()[0].height*0.5;
-        const viewHeight = window.innerHeight * 0.3;
-
-      
-        if(eloffsetTop <= 0){
-          if((eloffsetTop + height) > viewHeight){
-            setCurrentSection(el);
-          }
-        } else if(eloffsetTop > 0 && eloffsetTop < viewHeight){
-          setCurrentSection(el);
-        }
       }
-    }
-  }
-
-
-  //console.log(sectionIds);
-  useEffect(() => {
-    if (sectionIds.length > 0) {
-     // console.log("sectionIds_useEffect:",sectionIds[0]);
-      setCurrentSection(sectionIds[0]);
-    }
-  },[sectionIds])
-
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    }
-  },[sectionIds])
+      const title = sectionId
+        .replace(/-section$/, "")
+        .replace(/-/g, " ")
+        .replace(/\b\w/g, (c) => c.toUpperCase());
+      return [...prev, { title, sectionId }];
+    });
+  }, []);
 
   return (
-    <div className='mt-14 mx-auto max-w-7xl grid gap-y-5 lg:grid-cols-[30%_70%]'>
-      <LeftSection navBarItems={navBarItems} currentSection={currentSection} />  
-      <RightSection onInit={addSectionId} />
+    <div className="relative min-h-screen bg-[#090D16] text-[#F8FAFC] selection:bg-cyan-500/20 selection:text-cyan-300">
+      {/* Ambient background glows */}
+      <div
+        className="pointer-events-none fixed -top-40 -left-40 w-96 h-96 rounded-full bg-cyan-500/10 blur-[120px] -z-10"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none fixed top-1/3 -right-40 w-96 h-96 rounded-full bg-indigo-500/10 blur-[140px] -z-10"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none fixed -bottom-40 left-1/3 w-96 h-96 rounded-full bg-emerald-500/10 blur-[140px] -z-10"
+        aria-hidden="true"
+      />
+
+      {/* Main Container */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="lg:grid lg:grid-cols-[38%_62%] xl:grid-cols-[35%_65%] lg:gap-8">
+          <LeftSection
+            navBarItems={navBarItems}
+            currentSection={currentSection}
+          />
+          <RightSection onInit={handleRegisterSection} />
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
