@@ -56,11 +56,14 @@ $ npm run lint
 | **Education** | RMUTP (Computer Science) & Pongsawadi (Business Computer) | ✅ PASS | `src/contents/education.ts` |
 | **Contact & References** | LINE, Phone, multi-emails, 3 executive references with copy triggers | ✅ PASS | `src/contents/contact.ts`, `src/sections/ContactUs/index.tsx` |
 | **Architecture & UX** | Modern Dark Engineering, glassmorphism, Inter font, custom scrollbar | ✅ PASS | `src/App.css`, `src/index.css`, `index.html` |
-| **Code Cleanup** | Renamed `LelfSection` typo, removed duplicate navbar, added `useScrollSpy` | ✅ PASS | `src/sections/LeftSection/`, `src/hooks/useScrollSpy.ts` |
+| **Hero Profile Showcase** | Prominent portrait card, verified engineer chip, mission capsule | ✅ PASS | `src/sections/Hero/index.tsx`, `src/assets/phonepic.jpg` |
+| **Developer Console CLI** | macOS window controls, segmented tabs, interactive ZSH simulator | ✅ PASS | `src/sections/Hero/index.tsx`, `src/components/TerminalSimulator/` |
+| **SonarQube CLI Scanner** | Installed system-wide sonar-scanner 8.1.0 & configured npm run sonar | ✅ PASS | `sonar-project.properties`, `package.json` |
 
 ---
 
 ## 3. Residual Risks & Operational Notes
 
 - **Resume PDF Sync:** The project currently references `Pasit Chatcharoenkit-Resume-Update-26062568.pdf` from assets. If a newly exported PDF is generated from `Pasit Chatcharoenkit-Resume-Update-13052026.docx`, it can simply replace or be placed alongside in `src/assets/`.
+- **SonarQube Analysis:** To execute a scan against a local or remote SonarQube server, set `SONAR_TOKEN` and run `npm run sonar`.
 - **Deployment:** Ready to deploy to GitHub Pages anytime via `npm run deploy` (`gh-pages -d dist`).
