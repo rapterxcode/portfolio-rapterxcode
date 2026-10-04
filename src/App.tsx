@@ -13,6 +13,7 @@ import { data as educationData } from "./contents/education";
 import ContactUs from "./sections/ContactUs";
 import Footer from "./sections/Footer";
 import { useScrollSpy } from "./hooks/useScrollSpy";
+import { ThemeProvider } from "./context/ThemeProvider";
 import "./App.css";
 
 const NAVIGATION_ITEMS: NavItem[] = [
@@ -25,7 +26,7 @@ const NAVIGATION_ITEMS: NavItem[] = [
   { title: "Contact", sectionId: "contact-section" },
 ];
 
-function App() {
+function PortfolioApp() {
   const [activeSection, setActiveSection] = useState<string>("bento-highlights-section");
   const sectionIds = NAVIGATION_ITEMS.map((item) => item.sectionId);
   const currentSpySection = useScrollSpy(sectionIds, 0.2);
@@ -39,7 +40,7 @@ function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#070A11] text-[#F8FAFC] selection:bg-cyan-500/20 selection:text-cyan-300 font-sans antialiased">
+    <div className="relative min-h-screen bg-[#F8FAFC] dark:bg-[#070A11] text-slate-800 dark:text-[#F8FAFC] selection:bg-sky-500/20 selection:text-sky-800 dark:selection:text-cyan-300 font-sans antialiased transition-colors duration-200 overflow-x-hidden">
       {/* Dynamic Floating Capsule Navigation */}
       <FloatingNav
         navItems={NAVIGATION_ITEMS}
@@ -49,21 +50,21 @@ function App() {
 
       {/* Atmospheric Ambient Glows */}
       <div
-        className="pointer-events-none fixed top-0 left-1/4 w-[600px] h-[600px] rounded-full bg-cyan-500/10 blur-[150px] -z-10"
+        className="pointer-events-none fixed top-0 left-1/4 w-[600px] h-[600px] rounded-full bg-sky-400/12 dark:bg-cyan-500/10 blur-[150px] -z-10"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none fixed top-1/3 -right-20 w-[600px] h-[600px] rounded-full bg-purple-600/10 blur-[180px] -z-10"
+        className="pointer-events-none fixed top-1/3 -right-20 w-[600px] h-[600px] rounded-full bg-indigo-300/12 dark:bg-purple-600/10 blur-[180px] -z-10"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none fixed bottom-1/4 left-0 w-[500px] h-[500px] rounded-full bg-emerald-500/10 blur-[160px] -z-10"
+        className="pointer-events-none fixed bottom-1/4 left-0 w-[500px] h-[500px] rounded-full bg-emerald-400/10 dark:bg-emerald-500/10 blur-[160px] -z-10"
         aria-hidden="true"
       />
 
       {/* Subtle Grid Lines Overlay */}
       <div
-        className="pointer-events-none fixed inset-0 bg-[linear-gradient(to_right,#1f293710_1px,transparent_1px),linear-gradient(to_bottom,#1f293710_1px,transparent_1px)] bg-[size:4rem_4rem] -z-10"
+        className="pointer-events-none fixed inset-0 bg-[linear-gradient(to_right,#0f172a08_1px,transparent_1px),linear-gradient(to_bottom,#0f172a08_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1f293710_1px,transparent_1px),linear-gradient(to_bottom,#1f293710_1px,transparent_1px)] bg-[size:4rem_4rem] -z-10"
         aria-hidden="true"
       />
 
@@ -109,6 +110,14 @@ function App() {
         <Footer />
       </div>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <ThemeProvider>
+      <PortfolioApp />
+    </ThemeProvider>
   );
 }
 

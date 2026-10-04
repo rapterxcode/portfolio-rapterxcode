@@ -1,53 +1,65 @@
-@import "tailwindcss";
 
 @theme {
-  --color-mainBg: #090D16;
-  --color-canvas: #090D16;
-  --color-surface: #0F172A;
-  --color-surfaceHover: #1E293B;
+  --color-mainBg: #F8FAFC;
+  --color-canvas: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-surfaceHover: #F1F5F9;
 
-  --color-primaryText: #F8FAFC;
-  --color-secondaryText: #94A3B8;
+  --color-primaryText: #0F172A;
+  --color-secondaryText: #475569;
   --color-mutedText: #64748B;
 
-  --color-accentCyan: #06B6D4;
-  --color-accentEmerald: #10B981;
-  --color-accentBlue: #38BDF8;
+  --color-accentCyan: #0284C7;
+  --color-accentEmerald: #059669;
+  --color-accentBlue: #0284C7;
 
-  --color-borderSubtle: rgba(255, 255, 255, 0.08);
-  --color-borderHover: rgba(6, 182, 212, 0.3);
+  --color-borderSubtle: rgba(15, 23, 42, 0.08);
+  --color-borderHover: rgba(2, 132, 199, 0.35);
 
   /* Legacy tokens mapping */
-  --color-mainText: #F8FAFC;
-  --color-mainTextHover: #06B6D4;
-  --color-mainButtonBg: #06B6D4;
-  --color-mainButtonBgHover: #0891B2;
-  --color-mainButtonText: #090D16;
+  --color-mainText: #0F172A;
+  --color-mainTextHover: #0284C7;
+  --color-mainButtonBg: #0284C7;
+  --color-mainButtonBgHover: #0369A1;
+  --color-mainButtonText: #FFFFFF;
   --color-mainButtonTextHover: #FFFFFF;
-  --color-mainContainerBg: rgba(15, 23, 42, 0.6);
-  --color-mainContainerBgHover: rgba(30, 41, 59, 0.75);
-  --color-mainContainerText: #F8FAFC;
-  --color-mainContainerTextHover: #F8FAFC;
-  --color-mainIconBg: #1E293B;
-  --color-mainIconBgHover: #06B6D4;
+  --color-mainContainerBg: rgba(255, 255, 255, 0.9);
+  --color-mainContainerBgHover: rgba(248, 250, 252, 0.95);
+  --color-mainContainerText: #0F172A;
+  --color-mainContainerTextHover: #0F172A;
+  --color-mainIconBg: #E2E8F0;
+  --color-mainIconBgHover: #0284C7;
 }
 
-/* Glassmorphism utility helpers */
+/* Glassmorphism utility helpers - Bright & Light */
 .glass-panel {
-  background: rgba(15, 23, 42, 0.7);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
 }
 
 .glass-panel:hover {
-  border-color: rgba(6, 182, 212, 0.25);
+  border-color: rgba(2, 132, 199, 0.35);
+  box-shadow: 0 10px 25px -4px rgba(15, 23, 42, 0.08);
 }
 
 .glow-cyan {
-  box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.15);
+  box-shadow: 0 0 25px -5px rgba(2, 132, 199, 0.15);
 }
 
 .glow-emerald {
   box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.15);
+}
+
+/* Dark Mode Overrides */
+html.dark .glass-panel {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+}
+
+html.dark .glass-panel:hover {
+  border-color: rgba(6, 182, 212, 0.25);
 }

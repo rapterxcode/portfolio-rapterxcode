@@ -35,13 +35,13 @@ const Certification: React.FC<CertificationProps> = ({
   return (
     <section id={SECTION_ID} className="scroll-m-20 py-4">
       {/* Sticky section header */}
-      <div className="sticky top-0 z-20 backdrop-blur-md bg-[#090D16]/80 py-3 mb-4 border-b border-white/5 lg:border-none lg:static lg:bg-transparent lg:py-0">
+      <div className="sticky top-0 z-20 backdrop-blur-md bg-[#F8FAFC]/90 dark:bg-[#090D16]/80 py-3 mb-4 border-b border-slate-200/80 dark:border-white/5 lg:border-none lg:static lg:bg-transparent lg:py-0">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white flex items-center gap-3">
-            <span className="w-2 h-2 rounded-full bg-cyan-400 glow-cyan"></span>
+          <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-3">
+            <span className="w-2 h-2 rounded-full bg-sky-500 dark:bg-cyan-400 glow-cyan"></span>
             <span>{title}</span>
           </h2>
-          <span className="text-xs font-mono text-slate-400">
+          <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
             17 Accreditations · 20 Professional Courses
           </span>
         </div>
@@ -58,12 +58,12 @@ const Certification: React.FC<CertificationProps> = ({
           {certificationItems.map((cert) => (
             <div
               key={cert.id}
-              className="p-4 rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-slate-700 hover:bg-slate-900/70 transition-all duration-300 flex flex-col justify-between group"
+              className="p-4 rounded-2xl bg-white/95 dark:bg-slate-900/40 border border-slate-200/90 dark:border-slate-800/80 hover:border-sky-300 dark:hover:border-slate-700 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
                 {/* Header row */}
                 <div className="flex items-center justify-between gap-2 mb-2">
-                  <span className="text-xs font-mono text-cyan-400 font-medium">
+                  <span className="text-xs font-mono text-sky-600 dark:text-cyan-400 font-semibold">
                     {cert.issuer}
                   </span>
                   {cert.year && (
@@ -73,33 +73,33 @@ const Certification: React.FC<CertificationProps> = ({
                   )}
                 </div>
 
-                <h3 className="text-sm sm:text-base font-semibold text-white group-hover:text-cyan-300 transition-colors mb-2">
+                <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white group-hover:text-sky-600 dark:group-hover:text-cyan-300 transition-colors mb-2">
                   {cert.title}
                 </h3>
 
-                <p className="text-xs text-slate-400 leading-relaxed mb-3">
+                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-3">
                   {cert.description}
                 </p>
               </div>
 
               {/* Certificate image preview button if available */}
               {cert.picture ? (
-                <div className="pt-2 border-t border-slate-800/60 flex items-center justify-between">
-                  <span className="text-[11px] font-mono text-emerald-400 flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                <div className="pt-2 border-t border-slate-200 dark:border-slate-800/60 flex items-center justify-between">
+                  <span className="text-[11px] font-mono text-emerald-700 dark:text-emerald-400 flex items-center gap-1.5 font-medium">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                     <span>Verified Credential</span>
                   </span>
                   <button
                     type="button"
                     onClick={() => setPreviewCert(cert)}
-                    className="inline-flex items-center gap-1.5 text-xs font-mono text-cyan-400 hover:text-cyan-300 transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-1.5 text-xs font-mono text-sky-600 dark:text-cyan-400 hover:text-sky-700 dark:hover:text-cyan-300 font-medium transition-colors cursor-pointer"
                   >
                     <FontAwesomeIcon icon={faExpand} className="w-3 h-3" />
                     <span>View Certificate</span>
                   </button>
                 </div>
               ) : (
-                <div className="pt-2 border-t border-slate-800/60">
+                <div className="pt-2 border-t border-slate-200 dark:border-slate-800/60">
                   <span className="text-[11px] font-mono text-slate-500">
                     Accredited Professional
                   </span>
@@ -113,31 +113,31 @@ const Certification: React.FC<CertificationProps> = ({
           {courseTrainingItems.map((course) => (
             <div
               key={course.id}
-              className="p-4 rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-slate-700 transition-all duration-300 flex flex-col justify-between"
+              className="p-4 rounded-2xl bg-white/95 dark:bg-slate-900/40 border border-slate-200/90 dark:border-slate-800/80 hover:border-sky-300 dark:hover:border-slate-700 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-2">
-                  <span className="text-xs font-mono text-emerald-400">
+                  <span className="text-xs font-mono text-emerald-700 dark:text-emerald-400 font-semibold">
                     {course.provider}
                   </span>
                   {course.format && (
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-400">
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-400 border border-slate-200 dark:border-slate-700/60 font-medium">
                       {course.format}
                     </span>
                   )}
                 </div>
 
-                <h3 className="text-sm font-semibold text-white mb-2">
+                <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-2">
                   {course.title}
                 </h3>
 
-                <p className="text-xs text-slate-400 leading-relaxed">
+                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                   {course.description}
                 </p>
               </div>
 
-              <div className="pt-3 mt-3 border-t border-slate-800/60">
-                <span className="text-[10px] font-mono text-cyan-400/80 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">
+              <div className="pt-3 mt-3 border-t border-slate-200 dark:border-slate-800/60">
+                <span className="text-[10px] font-mono text-sky-700 dark:text-cyan-400/80 bg-sky-50 dark:bg-cyan-500/10 px-2 py-0.5 rounded border border-sky-200 dark:border-cyan-500/20 font-medium">
                   {course.topicCategory}
                 </span>
               </div>
@@ -156,7 +156,7 @@ const Certification: React.FC<CertificationProps> = ({
         >
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-mono text-cyan-300 font-semibold">
+              <span className="text-xs font-mono text-sky-600 dark:text-cyan-300 font-semibold">
                 Issuer: {previewCert.issuer}
               </span>
               {previewCert.code && (
@@ -166,7 +166,7 @@ const Certification: React.FC<CertificationProps> = ({
               )}
             </div>
 
-            <div className="rounded-xl overflow-hidden border border-slate-700/80 bg-slate-950 flex justify-center">
+            <div className="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700/80 bg-slate-100 dark:bg-slate-950 flex justify-center p-2 shadow-inner">
               <img
                 src={previewCert.picture}
                 alt={previewCert.titlePicture || previewCert.title}
@@ -174,7 +174,7 @@ const Certification: React.FC<CertificationProps> = ({
               />
             </div>
 
-            <p className="text-xs text-slate-300 leading-relaxed">
+            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
               {previewCert.description}
             </p>
           </div>

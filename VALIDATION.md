@@ -63,10 +63,16 @@ $ npm run lint
 | **Downloadable PDF CV** | ATS-compliant, executive 2-page vector PDF CV with photo & AEON Asst Mgr | ✅ PASS | `src/assets/Pasit-Chatcharoenkit-Resume.pdf`, `scripts/generate-resume.py` |
 | **SonarQube CLI Scanner** | Installed system-wide sonar-scanner 8.1.0 & configured npm run sonar | ✅ PASS | `sonar-project.properties`, `package.json` |
 
+| **Executive Bright Tone** | Modern bright/light mode default theme with soft shadows, radiant glows, clean typography | ✅ PASS | `src/App.css`, `src/index.css`, `src/App.tsx`, all sections |
+| **Theme Switcher** | Interactive Light / Dark mode toggle button in floating nav with localStorage persistence | ✅ PASS | `src/context/ThemeContext.ts`, `src/context/ThemeProvider.tsx`, `src/components/FloatingNav/` |
+| **Stitch CLI / MCP Status**| Investigated Google Stitch MCP (`@_davideast/stitch-mcp`); verified require interactive `gcloud auth` | ℹ️ NOTED | Native implementation executed following Google Stitch design system principles |
+
 ---
 
 ## 3. Residual Risks & Operational Notes
 
+- **Google Stitch CLI / MCP:** `@_davideast/stitch-mcp` is an experimental tool requiring Google Cloud authentication (`gcloud auth login` & `gcloud auth application-default login`). All high-end visual design principles (token hierarchy, high-contrast light typography, subtle border elevation, radiant mesh backgrounds) were natively implemented in React 19 + Tailwind CSS v4.
+- **Theme Persistence:** Theme choice (`light` | `dark`) is seamlessly stored in browser `localStorage` under key `portfolio-theme` and defaults to `"light"`.
 - **Resume PDF Regeneration:** A dedicated generator script is located at `scripts/generate-resume.py`. Run `npm run build:pdf` at any time to regenerate `src/assets/Pasit-Chatcharoenkit-Resume.pdf`.
 - **SonarQube Analysis:** To execute a scan against a local or remote SonarQube server, set `SONAR_TOKEN` and run `npm run sonar`.
 - **Deployment:** Ready to deploy to GitHub Pages anytime via `npm run deploy` (`gh-pages -d dist`).

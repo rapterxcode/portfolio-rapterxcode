@@ -19,7 +19,9 @@ const TitleLink: React.FC<TitleLinkProps> = ({
     return (
       <h3
         className={`text-base sm:text-lg font-semibold tracking-tight transition-colors duration-200 ${
-          isHighlight ? "text-cyan-300" : "text-white"
+          isHighlight
+            ? "text-sky-600 dark:text-cyan-300"
+            : "text-slate-900 dark:text-white"
         } ${className}`}
       >
         {title}
@@ -32,18 +34,20 @@ const TitleLink: React.FC<TitleLinkProps> = ({
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-1.5 group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded"
+      className="inline-flex items-center gap-1.5 group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 rounded"
     >
       <h3
-        className={`text-base sm:text-lg font-semibold tracking-tight transition-colors duration-200 group-hover:text-cyan-300 ${
-          isHighlight ? "text-cyan-300" : "text-white"
+        className={`text-base sm:text-lg font-semibold tracking-tight transition-colors duration-200 group-hover:text-sky-600 dark:group-hover:text-cyan-300 ${
+          isHighlight
+            ? "text-sky-600 dark:text-cyan-300"
+            : "text-slate-900 dark:text-white"
         } ${className}`}
       >
         {title}
       </h3>
       <FontAwesomeIcon
         icon={faArrowUpRightFromSquare}
-        className="w-3.5 h-3.5 text-slate-400 group-hover:text-cyan-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform duration-200"
+        className="w-3.5 h-3.5 text-slate-400 group-hover:text-sky-600 dark:group-hover:text-cyan-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform duration-200"
       />
     </a>
   );

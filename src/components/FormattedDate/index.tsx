@@ -11,7 +11,7 @@ const FormattedDate: React.FC<FormattedDateProps> = ({ children, isHighlight }) 
     <div className="mb-1">
       <span
         className={`text-xs font-mono tracking-wider uppercase transition-colors duration-200 ${
-          isHighlight ? "text-cyan-300 font-medium" : "text-slate-400"
+          isHighlight ? "text-sky-600 dark:text-cyan-300 font-semibold" : "text-slate-500 dark:text-slate-400"
         }`}
       >
         {children}
