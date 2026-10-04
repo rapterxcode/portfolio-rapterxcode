@@ -65,13 +65,13 @@ $ npm run lint
 
 | **Executive Bright Tone** | Modern bright/light mode default theme with soft shadows, radiant glows, clean typography | ✅ PASS | `src/App.css`, `src/index.css`, `src/App.tsx`, all sections |
 | **Theme Switcher** | Interactive Light / Dark mode toggle button in floating nav with localStorage persistence | ✅ PASS | `src/context/ThemeContext.ts`, `src/context/ThemeProvider.tsx`, `src/components/FloatingNav/` |
-| **Stitch CLI / MCP Status**| Investigated Google Stitch MCP (`@_davideast/stitch-mcp`); verified require interactive `gcloud auth` | ℹ️ NOTED | Native implementation executed following Google Stitch design system principles |
+| **Google Stitch Integration**| Connected via API Key to `@_davideast/stitch-mcp` (Doctor: 200 Healthy); created Stitch project `6886626315215279088`, generated screen `7a442b89d6da4436b9e16b376741a0b1`, and imported Plus Jakarta Sans, glass-surface tokens & color hierarchy | ✅ PASS | `.env.local` (git-ignored), `index.html`, `src/App.css`, `src/index.css` |
 
 ---
 
 ## 3. Residual Risks & Operational Notes
 
-- **Google Stitch CLI / MCP:** `@_davideast/stitch-mcp` is an experimental tool requiring Google Cloud authentication (`gcloud auth login` & `gcloud auth application-default login`). All high-end visual design principles (token hierarchy, high-contrast light typography, subtle border elevation, radiant mesh backgrounds) were natively implemented in React 19 + Tailwind CSS v4.
+- **Google Stitch Integration:** Live integration with Google Stitch MCP (`@_davideast/stitch-mcp`) succeeded using `STITCH_API_KEY`. Verified healthy (`200 OK`), project created (`Pasit Chatcharoenkit Portfolio - Executive Bright`, ID `6886626315215279088`), screen generated, and tokens (`Plus Jakarta Sans`, `JetBrains Mono`, `Inter`, `glass-surface` with `inset 0 1px 0 rgba(255, 255, 255, 0.9)`) integrated directly into the portfolio.
 - **Theme Persistence:** Theme choice (`light` | `dark`) is seamlessly stored in browser `localStorage` under key `portfolio-theme` and defaults to `"light"`.
 - **Resume PDF Regeneration:** A dedicated generator script is located at `scripts/generate-resume.py`. Run `npm run build:pdf` at any time to regenerate `src/assets/Pasit-Chatcharoenkit-Resume.pdf`.
 - **SonarQube Analysis:** To execute a scan against a local or remote SonarQube server, set `SONAR_TOKEN` and run `npm run sonar`.
