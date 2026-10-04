@@ -78,7 +78,7 @@ const TerminalSimulator = ({ hideWindowBar = false, className = "" }: TerminalSi
         break;
 
       case "contact":
-        output = "Email: phonepasit9@gmail.com · LINE: phonegtracing · Phone: +66 92 415 7139";
+        output = "Email: phonepasit9@gmail.com · GitHub: https://github.com/rapterxcode · LINE: phonegtracing · Phone: +66 92 415 7139";
         break;
 
       case "neofetch":

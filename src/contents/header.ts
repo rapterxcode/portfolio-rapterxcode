@@ -16,7 +16,7 @@ export const profileData: ProfileInfo = {
   resumeFile: fileResume,
   resumeDownloadName: "Pasit_Chatcharoenkit_Resume.pdf",
   social: {
-    github: "https://github.com/pasit-chatcharoenkit",
+    github: "https://github.com/rapterxcode",
     linkedin: "https://www.linkedin.com/in/pasit-chatcharoenkit-b6b1b1200/",
     facebook: "https://www.facebook.com/phonerapterx",
     credly: "https://www.credly.com/users/pasit-chatcharoenkit",

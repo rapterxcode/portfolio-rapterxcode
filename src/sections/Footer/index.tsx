@@ -11,10 +11,27 @@ const Footer: React.FC = () => {
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="space-y-1 text-center sm:text-left">
           <p className="font-mono text-slate-300">
-            Crafted with passion by <strong className="text-white">Pasit Chatcharoenkit</strong> (RapterXCode)
+            Crafted with passion by <strong className="text-white">Pasit Chatcharoenkit</strong> (
+            <a
+              href="https://github.com/rapterxcode"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-cyan-400 hover:text-cyan-300 transition-colors underline decoration-cyan-500/30 underline-offset-2"
+            >
+              @rapterxcode
+            </a>
+            )
           </p>
           <p className="text-[11px] text-slate-500">
-            Built with React 19, TypeScript, Vite & Tailwind CSS v4 · Deployed on GitHub Pages
+            Built with React 19, TypeScript, Vite & Tailwind CSS v4 ·{" "}
+            <a
+              href="https://github.com/rapterxcode/portfolio-rapterxcode"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-cyan-400 transition-colors"
+            >
+              Deployed on GitHub Pages
+            </a>
           </p>
         </div>
 

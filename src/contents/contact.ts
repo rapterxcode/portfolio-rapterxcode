@@ -10,7 +10,7 @@ export const contactDetails = {
   ],
   links: {
     linkedin: "https://www.linkedin.com/in/pasit-chatcharoenkit-b6b1b1200/",
-    github: "https://github.com/pasit-chatcharoenkit",
+    github: "https://github.com/rapterxcode",
     credly: "https://www.credly.com/users/pasit-chatcharoenkit",
     facebook: "https://www.facebook.com/phonerapterx"
   }
@@ -49,7 +49,7 @@ export const data = [
   {
     title: "GitHub",
     link: contactDetails.links.github,
-    description: ["pasit-chatcharoenkit"]
+    description: ["rapterxcode"]
   },
   {
     title: "Email",

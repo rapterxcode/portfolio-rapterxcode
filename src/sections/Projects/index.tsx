@@ -6,6 +6,7 @@ import {
   faCheckCircle,
   faStar
 } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { projectItems } from "../../contents/project";
 import type { ProjectItem } from "../../types/portfolio";
 import Tabs from "../../components/Tabs";
@@ -67,9 +68,21 @@ const Projects: React.FC<ProjectsProps> = ({ onInit, title = "Projects" }) => {
             <span className="w-2 h-2 rounded-full bg-cyan-400 glow-cyan"></span>
             <span>{title}</span>
           </h2>
-          <span className="text-xs font-mono text-slate-400">
-            {projectItems.length} Enterprise & AI Implementations
-          </span>
+          <div className="flex items-center gap-3">
+            <a
+              href="https://github.com/rapterxcode"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub Repository - rapterxcode"
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-900/90 border border-slate-800 hover:border-cyan-500/40 text-xs font-mono text-slate-300 hover:text-cyan-300 transition-all shadow-sm group"
+            >
+              <FontAwesomeIcon icon={faGithub} className="text-sm text-slate-400 group-hover:text-cyan-400 transition-colors" />
+              <span>@rapterxcode</span>
+            </a>
+            <span className="text-xs font-mono text-slate-400 hidden sm:inline">
+              {projectItems.length} Enterprise & AI Implementations
+            </span>
+          </div>
         </div>
       </div>
 
