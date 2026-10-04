@@ -11,7 +11,8 @@
     "deploy": "gh-pages -d dist",
     "lint": "eslint .",
     "preview": "vite preview",
-    "sonar": "sonar-scanner"
+    "sonar": "sonar-scanner",
+    "build:pdf": "python3 scripts/generate-resume.py"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",

@@ -1,4 +1,4 @@
-import fileResume from "../assets/Pasit Chatcharoenkit-Resume-Update-26062568.pdf";
+import fileResume from "../assets/Pasit-Chatcharoenkit-Resume.pdf";
 import phonethubnail from "../assets/phonepic.jpg";
 import type { ProfileInfo } from "../types/portfolio";
 

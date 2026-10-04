@@ -60,12 +60,14 @@ $ npm run lint
 | **Hero Profile Showcase** | Prominent portrait card, verified engineer chip, mission capsule | ✅ PASS | `src/sections/Hero/index.tsx`, `src/assets/phonepic.jpg` |
 | **Developer Console CLI** | macOS window controls, segmented tabs, interactive ZSH simulator | ✅ PASS | `src/sections/Hero/index.tsx`, `src/components/TerminalSimulator/` |
 | **GitHub Profile & Repos** | Updated all links to https://github.com/rapterxcode (@rapterxcode) | ✅ PASS | `src/contents/contact.ts`, `src/contents/header.ts`, `src/sections/Projects/` |
+| **Downloadable PDF CV** | ATS-compliant, executive 2-page vector PDF CV with photo & AEON Asst Mgr | ✅ PASS | `src/assets/Pasit-Chatcharoenkit-Resume.pdf`, `scripts/generate-resume.py` |
 | **SonarQube CLI Scanner** | Installed system-wide sonar-scanner 8.1.0 & configured npm run sonar | ✅ PASS | `sonar-project.properties`, `package.json` |
 
 ---
 
 ## 3. Residual Risks & Operational Notes
 
-- **Resume PDF Sync:** The project currently references `Pasit Chatcharoenkit-Resume-Update-26062568.pdf` from assets. If a newly exported PDF is generated from `Pasit Chatcharoenkit-Resume-Update-13052026.docx`, it can simply replace or be placed alongside in `src/assets/`.
+- **Resume PDF Regeneration:** A dedicated generator script is located at `scripts/generate-resume.py`. Run `npm run build:pdf` at any time to regenerate `src/assets/Pasit-Chatcharoenkit-Resume.pdf`.
 - **SonarQube Analysis:** To execute a scan against a local or remote SonarQube server, set `SONAR_TOKEN` and run `npm run sonar`.
 - **Deployment:** Ready to deploy to GitHub Pages anytime via `npm run deploy` (`gh-pages -d dist`).
+
