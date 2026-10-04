@@ -59,6 +59,7 @@ $ npm run lint
 | **Architecture & UX** | Modern Dark Engineering, glassmorphism, Inter font, custom scrollbar | ✅ PASS | `src/App.css`, `src/index.css`, `index.html` |
 | **Hero Profile Showcase** | Prominent portrait card, verified engineer chip, mission capsule | ✅ PASS | `src/sections/Hero/index.tsx`, `src/assets/phonepic.jpg` |
 | **Developer Console CLI** | macOS window controls, segmented tabs, interactive ZSH simulator | ✅ PASS | `src/sections/Hero/index.tsx`, `src/components/TerminalSimulator/` |
+| **GitHub Profile & Repos** | Updated all links to https://github.com/rapterxcode (@rapterxcode) | ✅ PASS | `src/contents/contact.ts`, `src/contents/header.ts`, `src/sections/Projects/` |
 | **SonarQube CLI Scanner** | Installed system-wide sonar-scanner 8.1.0 & configured npm run sonar | ✅ PASS | `sonar-project.properties`, `package.json` |
 
 ---
