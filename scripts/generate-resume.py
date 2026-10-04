@@ -343,7 +343,7 @@ def generate_resume_pdf():
           <div class="contact-item"><strong>Phone:</strong> +66 92 415 7139</div>
           <div class="contact-item"><strong>Email:</strong> <a href="mailto:phonepasit9@gmail.com">phonepasit9@gmail.com</a></div>
           <div class="contact-item"><strong>GitHub:</strong> <a href="https://github.com/rapterxcode">github.com/rapterxcode</a></div>
-          <div class="contact-item"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/pasit-chatcharoenkit-b6b1b1200/">in/pasit-chatcharoenkit</a></div>
+          <div class="contact-item"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/pasit-chatcharoenkit/">in/pasit-chatcharoenkit</a></div>
           <div class="contact-item"><strong>LINE:</strong> phonegtracing</div>
           <div class="contact-item"><strong>Credly:</strong> <a href="https://www.credly.com/users/pasit-chatcharoenkit">credly.com/users/pasit-chatcharoenkit</a></div>
         </div>

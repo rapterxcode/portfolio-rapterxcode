@@ -9,7 +9,7 @@ export const contactDetails = {
     "pasit.working@gmail.com"
   ],
   links: {
-    linkedin: "https://www.linkedin.com/in/pasit-chatcharoenkit-b6b1b1200/",
+    linkedin: "https://www.linkedin.com/in/pasit-chatcharoenkit/",
     github: "https://github.com/rapterxcode",
     credly: "https://www.credly.com/users/pasit-chatcharoenkit",
     facebook: "https://www.facebook.com/phonerapterx"
