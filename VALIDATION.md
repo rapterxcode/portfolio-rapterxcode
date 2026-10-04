@@ -47,8 +47,9 @@ $ npm run lint
 | Section / Domain | Resume Specification | Implementation Status | Evidence / File Path |
 | :--- | :--- | :--- | :--- |
 | **Profile & Header** | 6+ Yrs DevOps, AEON onsite, direct contact channels | ✅ PASS | `src/contents/header.ts`, `src/sections/Header/index.tsx` |
-| **Current Role** | Tech Soft Holding @ AEON Thana Sinsap (Aug 2025 - Present) | ✅ PASS | `src/contents/experience.ts`, `src/sections/Experience/index.tsx` |
-| **Career History** | 5 complete career milestones with tech stack breakdowns | ✅ PASS | `src/contents/experience.ts` |
+| **Current Position** | Assistant Manager - Cloud & Automation @ AEON Thana Sinsap (Aug 2026 - Present) | ✅ PASS | `src/contents/experience.ts`, `src/sections/Hero/index.tsx` |
+| **Previous Role** | Tech Soft Holding onsite AEON (Aug 2025 - 31 July 2026) | ✅ PASS | `src/contents/experience.ts` |
+| **Career History** | 5 complete enterprise milestones with architecture, leadership & landing zones | ✅ PASS | `src/contents/experience.ts` |
 | **Enterprise Projects** | 19 enterprise & AI projects (previously "Coming Soon") | ✅ PASS | `src/contents/project.ts`, `src/sections/Projects/index.tsx` |
 | **Interactive Projects** | Filter tabs (Cloud, AI, Infra, Security) + Deep-dive Architecture Modal | ✅ PASS | `src/sections/Projects/index.tsx`, `src/components/Modal/index.tsx` |
 | **Skills & Competencies** | 10 domains with 50+ toolsets (Cloud, Linux, HCI, Optical, AI) | ✅ PASS | `src/contents/skills.ts`, `src/sections/Skills/index.tsx` |
