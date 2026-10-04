@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload, faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { profileData } from "../../contents/header";
+import { profileData, data as legacyData } from "../../contents/header";
 
 export interface NavItem {
   title: string;
@@ -33,12 +33,16 @@ const FloatingNav = ({
   return (
     <header className="fixed top-4 inset-x-0 z-50 px-4 pointer-events-none">
       <div className="max-w-6xl mx-auto flex items-center justify-between pointer-events-auto">
-        {/* Brand Capsule */}
+        {/* Brand Capsule with Avatar */}
         <div
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-950/85 backdrop-blur-xl border border-white/10 shadow-2xl cursor-pointer hover:border-cyan-500/40 transition-all duration-200"
+          className="flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-slate-950/85 backdrop-blur-xl border border-white/10 shadow-2xl cursor-pointer hover:border-cyan-500/40 transition-all duration-200"
         >
-          <div className="w-2.5 h-2.5 rounded-full bg-cyan-400 glow-cyan animate-pulse" />
+          <img
+            src={legacyData.thumbnail}
+            alt="Pasit"
+            className="w-6 h-6 rounded-full object-cover border border-cyan-400/80 shadow-sm"
+          />
           <span className="font-bold text-xs sm:text-sm font-mono tracking-tight text-white">
             PASIT.DEV
           </span>

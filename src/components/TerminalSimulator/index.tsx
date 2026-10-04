@@ -7,6 +7,11 @@ interface HistoryEntry {
   output: string | React.ReactNode;
 }
 
+export interface TerminalSimulatorProps {
+  hideWindowBar?: boolean;
+  className?: string;
+}
+
 const INITIAL_HISTORY: HistoryEntry[] = [
   {
     command: "whoami",
@@ -18,7 +23,7 @@ const INITIAL_HISTORY: HistoryEntry[] = [
   }
 ];
 
-const TerminalSimulator = () => {
+const TerminalSimulator = ({ hideWindowBar = false, className = "" }: TerminalSimulatorProps) => {
   const [history, setHistory] = useState<HistoryEntry[]>(INITIAL_HISTORY);
   const [inputVal, setInputVal] = useState("");
   const bottomRef = useRef<HTMLDivElement>(null);
@@ -112,20 +117,28 @@ const TerminalSimulator = () => {
   };
 
   return (
-    <div className="w-full rounded-2xl bg-slate-950/90 border border-slate-800 shadow-2xl backdrop-blur-xl overflow-hidden font-mono text-xs text-slate-300">
+    <div
+      className={`w-full ${
+        hideWindowBar
+          ? "bg-transparent"
+          : "rounded-2xl bg-slate-950/90 border border-slate-800 shadow-2xl backdrop-blur-xl overflow-hidden"
+      } font-mono text-xs text-slate-300 ${className}`}
+    >
       {/* Terminal Title Bar */}
-      <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/80 border-b border-slate-800/80">
-        <div className="flex items-center gap-2">
-          <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
-          <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
-          <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
-          <span className="ml-2 text-slate-400 text-[11px] font-sans">pasit@cloud-ops:~</span>
+      {!hideWindowBar && (
+        <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/80 border-b border-slate-800/80">
+          <div className="flex items-center gap-2">
+            <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+            <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
+            <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+            <span className="ml-2 text-slate-400 text-[11px] font-sans">pasit@cloud-ops:~</span>
+          </div>
+          <div className="flex items-center gap-1.5 text-[11px] text-slate-500">
+            <FontAwesomeIcon icon={faTerminal} className="w-3 h-3 text-cyan-400" />
+            <span>interactive zsh</span>
+          </div>
         </div>
-        <div className="flex items-center gap-1.5 text-[11px] text-slate-500">
-          <FontAwesomeIcon icon={faTerminal} className="w-3 h-3 text-cyan-400" />
-          <span>interactive zsh</span>
-        </div>
-      </div>
+      )}
 
       {/* Quick Action Badges */}
       <div className="flex flex-wrap items-center gap-1.5 px-4 py-2 bg-slate-900/40 border-b border-slate-800/40 text-[11px]">
