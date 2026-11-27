@@ -1,135 +1,153 @@
-import { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
 import {
-  faEnvelope,
-  faPhone,
-  faCopy,
-  faCheck,
-  faUserTie,
-  faBuilding,
-  faMessage
-} from "@fortawesome/free-solid-svg-icons";
-import { faLine } from "@fortawesome/free-brands-svg-icons";
-import { contactDetails, references } from "../../contents/contact";
+  Building2,
+  Check,
+  Copy,
+  Mail,
+  MessageSquare,
+  Phone,
+  UserCheck,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { LineIcon } from "@/components/icons/BrandIcons";
+import { contactDetails, references } from "@/contents/contact";
 
 interface ContactUsProps {
-  onInit?: (sectionId: string) => void;
   title?: string;
 }
 
-const ContactUs: React.FC<ContactUsProps> = ({ onInit, title = "Get In Touch & References" }) => {
-  const SECTION_ID = "contact-section";
+export default function ContactUs({ title = "Get In Touch & References" }: ContactUsProps) {
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (onInit) {
-      onInit(SECTION_ID);
+  const handleCopy = async (text: string, key: string) => {
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(text);
+      }
+      setCopiedKey(key);
+      window.setTimeout(() => setCopiedKey(null), 2000);
+    } catch {
+      // Ignore clipboard write errors in restricted contexts
     }
-  }, [onInit, SECTION_ID]);
-
-  const handleCopy = (text: string, key: string) => {
-    navigator.clipboard.writeText(text);
-    setCopiedKey(key);
-    setTimeout(() => setCopiedKey(null), 2000);
   };
 
   return (
-    <section id={SECTION_ID} className="scroll-m-20 py-4">
-      {/* Section Title */}
+    <section id="contact-section" className="scroll-m-20 py-4">
       <div className="sticky top-0 z-20 backdrop-blur-md bg-[#F8FAFC]/90 dark:bg-[#090D16]/80 py-3 mb-6 border-b border-slate-200/80 dark:border-white/5 lg:border-none lg:static lg:bg-transparent lg:py-0">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-3">
-          <span className="w-2 h-2 rounded-full bg-sky-500 dark:bg-cyan-400 glow-cyan"></span>
+          <span className="size-2 rounded-full bg-sky-500 dark:bg-cyan-400 glow-cyan" aria-hidden="true" />
           <span>{title}</span>
         </h2>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
         {/* Contact Channels Card */}
-        <div className="p-5 rounded-2xl bg-white/95 dark:bg-slate-900/40 border border-slate-200/90 dark:border-slate-800/80 space-y-4 shadow-sm">
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-sky-600 dark:text-cyan-400 font-mono flex items-center gap-2">
-            <FontAwesomeIcon icon={faMessage} />
-            <span>Direct Channels</span>
-          </h3>
+        <Card className="rounded-2xl py-0 gap-0 bg-white/95 dark:bg-slate-900/40 border-slate-200/90 dark:border-slate-800/80 shadow-sm">
+          <CardHeader className="p-5 pb-3">
+            <CardTitle className="text-sm font-semibold uppercase tracking-wider text-sky-600 dark:text-cyan-400 font-mono flex items-center gap-2">
+              <MessageSquare className="size-4" aria-hidden="true" />
+              <span>Direct Channels</span>
+            </CardTitle>
+          </CardHeader>
 
-          <div className="space-y-2.5">
-            {/* Primary Email */}
-            <div className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 text-xs sm:text-sm">
-              <div className="flex items-center gap-2.5 text-slate-700 dark:text-slate-300 truncate">
-                <FontAwesomeIcon icon={faEnvelope} className="text-sky-600 dark:text-cyan-400 w-3.5 h-3.5" />
-                <span className="truncate">{contactDetails.emails[0]}</span>
-              </div>
-              <button
-                type="button"
-                onClick={() => handleCopy(contactDetails.emails[0], "email1")}
-                className="ml-2 text-slate-400 hover:text-sky-600 dark:hover:text-cyan-300 cursor-pointer p-1"
-                title="Copy Email"
-              >
-                <FontAwesomeIcon icon={copiedKey === "email1" ? faCheck : faCopy} className="w-3.5 h-3.5" />
-              </button>
-            </div>
-
-            {/* Secondary Email */}
-            <div className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 text-xs sm:text-sm">
-              <div className="flex items-center gap-2.5 text-slate-700 dark:text-slate-300 truncate">
-                <FontAwesomeIcon icon={faEnvelope} className="text-sky-600 dark:text-cyan-400 w-3.5 h-3.5" />
-                <span className="truncate">{contactDetails.emails[1]}</span>
-              </div>
-              <button
-                type="button"
-                onClick={() => handleCopy(contactDetails.emails[1], "email2")}
-                className="ml-2 text-slate-400 hover:text-sky-600 dark:hover:text-cyan-300 cursor-pointer p-1"
-                title="Copy Email"
-              >
-                <FontAwesomeIcon icon={copiedKey === "email2" ? faCheck : faCopy} className="w-3.5 h-3.5" />
-              </button>
-            </div>
+          <CardContent className="p-5 pt-1 space-y-2.5">
+            {contactDetails.emails.map((email, idx) => {
+              const key = `email-${idx}`;
+              const isCopied = copiedKey === key;
+              return (
+                <div
+                  key={email}
+                  className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 text-xs sm:text-sm"
+                >
+                  <div className="flex items-center gap-2.5 text-slate-700 dark:text-slate-300 truncate">
+                    <Mail className="size-3.5 text-sky-600 dark:text-cyan-400 shrink-0" aria-hidden="true" />
+                    <span className="truncate">{email}</span>
+                  </div>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="icon-xs"
+                        onClick={() => handleCopy(email, key)}
+                        aria-label={`Copy email ${email}`}
+                        className="ml-2 text-slate-500 hover:text-sky-600 dark:hover:text-cyan-300 cursor-pointer"
+                      >
+                        {isCopied ? (
+                          <Check className="size-3.5 text-emerald-500" />
+                        ) : (
+                          <Copy className="size-3.5" />
+                        )}
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>{isCopied ? "Copied!" : "Copy Email"}</TooltipContent>
+                  </Tooltip>
+                </div>
+              );
+            })}
 
             {/* LINE ID */}
             <div className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 text-xs sm:text-sm">
               <div className="flex items-center gap-2.5 text-slate-700 dark:text-slate-300">
-                <FontAwesomeIcon icon={faLine} className="text-emerald-500 w-4 h-4" />
-                <span>LINE: <strong className="text-slate-900 dark:text-white">{contactDetails.lineId}</strong></span>
+                <LineIcon className="size-4 text-emerald-500 shrink-0" />
+                <span>
+                  LINE: <strong className="text-slate-900 dark:text-white">{contactDetails.lineId}</strong>
+                </span>
               </div>
-              <button
-                type="button"
-                onClick={() => handleCopy(contactDetails.lineId, "line")}
-                className="text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-300 cursor-pointer p-1"
-                title="Copy LINE ID"
-              >
-                <FontAwesomeIcon icon={copiedKey === "line" ? faCheck : faCopy} className="w-3.5 h-3.5" />
-              </button>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="icon-xs"
+                    onClick={() => handleCopy(contactDetails.lineId, "line")}
+                    aria-label="Copy LINE ID"
+                    className="text-slate-500 hover:text-emerald-600 dark:hover:text-emerald-300 cursor-pointer"
+                  >
+                    {copiedKey === "line" ? (
+                      <Check className="size-3.5 text-emerald-500" />
+                    ) : (
+                      <Copy className="size-3.5" />
+                    )}
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>{copiedKey === "line" ? "Copied!" : "Copy LINE ID"}</TooltipContent>
+              </Tooltip>
             </div>
 
             {/* Phone */}
             <div className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 text-xs sm:text-sm">
               <div className="flex items-center gap-2.5 text-slate-700 dark:text-slate-300">
-                <FontAwesomeIcon icon={faPhone} className="text-sky-600 dark:text-emerald-400 w-3.5 h-3.5" />
-                <span>Phone: <strong className="text-slate-900 dark:text-white">{contactDetails.phone}</strong></span>
+                <Phone className="size-3.5 text-sky-600 dark:text-emerald-400 shrink-0" aria-hidden="true" />
+                <span>
+                  Phone: <strong className="text-slate-900 dark:text-white">{contactDetails.phone}</strong>
+                </span>
               </div>
-              <a
-                href={`tel:${contactDetails.phone.replace(/\s+/g, "")}`}
-                className="text-xs font-mono text-sky-600 dark:text-cyan-400 hover:text-sky-700 dark:hover:text-cyan-300 underline font-semibold"
-              >
-                Call
-              </a>
+              <Button asChild variant="link" size="xs" className="h-auto p-0 font-mono text-xs">
+                <a href={`tel:${contactDetails.phone.replace(/\s+/g, "")}`}>Call</a>
+              </Button>
             </div>
-          </div>
-        </div>
+          </CardContent>
+        </Card>
 
         {/* Professional References Card */}
-        <div className="p-5 rounded-2xl bg-white/95 dark:bg-slate-900/40 border border-slate-200/90 dark:border-slate-800/80 space-y-4 shadow-sm">
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-sky-600 dark:text-cyan-400 font-mono flex items-center gap-2">
-            <FontAwesomeIcon icon={faUserTie} />
-            <span>Professional References</span>
-          </h3>
+        <Card className="rounded-2xl py-0 gap-0 bg-white/95 dark:bg-slate-900/40 border-slate-200/90 dark:border-slate-800/80 shadow-sm">
+          <CardHeader className="p-5 pb-3">
+            <CardTitle className="text-sm font-semibold uppercase tracking-wider text-sky-600 dark:text-cyan-400 font-mono flex items-center gap-2">
+              <UserCheck className="size-4" aria-hidden="true" />
+              <span>Professional References</span>
+            </CardTitle>
+          </CardHeader>
 
-          <div className="space-y-3">
+          <CardContent className="p-5 pt-1 space-y-3">
             {references.map((ref, idx) => (
               <div
                 key={`ref-${idx}`}
                 className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 text-xs space-y-1"
               >
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between gap-2">
                   <span className="font-bold text-slate-900 dark:text-white text-xs sm:text-sm">
                     {ref.name}
                   </span>
@@ -140,7 +158,7 @@ const ContactUs: React.FC<ContactUsProps> = ({ onInit, title = "Get In Touch & R
 
                 {ref.organization && (
                   <div className="text-slate-600 dark:text-slate-400 flex items-center gap-1.5 text-[11px]">
-                    <FontAwesomeIcon icon={faBuilding} className="text-slate-400 w-3 h-3" />
+                    <Building2 className="size-3 text-slate-400 shrink-0" aria-hidden="true" />
                     <span>{ref.organization}</span>
                   </div>
                 )}
@@ -165,11 +183,9 @@ const ContactUs: React.FC<ContactUsProps> = ({ onInit, title = "Get In Touch & R
                 </div>
               </div>
             ))}
-          </div>
-        </div>
+          </CardContent>
+        </Card>
       </div>
     </section>
   );
-};
-
-export default ContactUs;
+}

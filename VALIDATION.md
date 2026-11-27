@@ -1,79 +1,87 @@
-# VALIDATION.md: Portfolio Redesign & Architecture Elevation Verification
+# VALIDATION.md: React 19.3 Upgrade, CVE Remediation, shadcn/ui Refactor & Firebase Hosting Verification
 
-- **Date:** 2026-10-04
-- **Branch:** `feat/portfolio-redesign`
-- **Target Stack:** React 19, TypeScript 5.8, Vite 6.3, Tailwind CSS v4
-- **Deployment URL:** https://rapterxcode.github.io/portfolio-rapterxcode
+- **Date:** 2026-11-27
+- **Production Branch:** `main` (merged from `feat/react19-shadcn-firebase`)
+- **Archived GitHub Pages Branch:** `deploy-github-page` (`81759b2` — exact pre-refactor snapshot pushed to `origin/deploy-github-page`)
+- **Target Stack:** React `19.3.1`, TypeScript `5.9.3`, Vite `8.4.0` (Rolldown + Oxc), Tailwind CSS `4.3.5`, `shadcn/ui` (`radix-ui` `1.8.1`, `lucide-react` `1.82.0`), ESLint `10.15.0`, Vitest `5.1.2`
+- **GCP / Firebase Project:** `raptorxcode` (Project Number `31940467839`)
+- **Live Hosting URL:** https://raptorxcode.web.app (also https://raptorxcode.firebaseapp.com)
+- **Preview Channel URL:** https://raptorxcode--preview-react19-nulbjph1.web.app
 
 ---
 
-## 1. Quality Gates & Build Verification
+## 1. Security & Quality Gate Evidence
 
-### TypeScript & Compiler Check
+### Vulnerability Audit (`npm audit`)
+- **Before:** 21 vulnerabilities (1 Critical, 16 High, 2 Moderate, 2 Low)
+- **After:**
+```bash
+$ npm audit
+found 0 vulnerabilities
+# Result: PASS (0 CVEs)
+```
+
+### TypeScript Compiler (`npm run typecheck`)
 ```bash
 $ tsc -b
 # Result: PASS (0 errors)
 ```
 
-### Production Build (`npm run build`)
+### ESLint 10 + React Hooks v7 (`npm run lint`)
 ```bash
-$ npm run build
-
-> my-portfolio@0.0.0 build
-> tsc -b && vite build
-
-vite v6.3.5 building for production...
-dist/index.html                                                         1.36 kB │ gzip:   0.69 kB
-dist/assets/index-CJorATPN.css                                         93.70 kB │ gzip:  15.03 kB
-dist/assets/index-re_1eXrT.js                                         426.62 kB │ gzip: 133.05 kB
-✓ built in 697ms
-# Result: PASS (Exit code: 0)
-```
-
-### ESLint Linter Check (`npm run lint`)
-```bash
-$ npm run lint
-
-> my-portfolio@0.0.0 lint
-> eslint .
-
+$ eslint .
 # Result: PASS (0 errors, 0 warnings)
 ```
 
+### Automated Unit & Component Tests (`npm test`)
+```bash
+$ vitest run
+ ✓ src/App.test.tsx (5 tests)
+   ✓ renders all primary sections including fixed about-section anchor ID
+   ✓ toggles between light and dark theme with localStorage persistence
+   ✓ filters projects via search input and opens/closes accessible Architecture Dialog
+   ✓ switches Hero console to Terminal tab and executes interactive commands
+   ✓ switches Certification tabs and opens Certificate Lightbox Dialog
+
+Test Files  1 passed (1)
+     Tests  5 passed (5)
+# Result: PASS (5/5)
+```
+
+### Production Build (`npm run build`)
+```bash
+$ tsc -b && vite build
+vite v8.4.0 building client environment for production...
+dist/index.html                                               1.76 kB │ gzip:  0.82 kB
+dist/assets/index-BXTtb21v.css                              107.45 kB │ gzip: 16.31 kB
+dist/assets/rolldown-runtime-Dl_DZoUm.js                      0.59 kB │ gzip:  0.35 kB
+dist/assets/ui-vendor-o5szFTxX.js                            40.33 kB │ gzip: 13.84 kB
+dist/assets/react-vendor-1o5M9n0k.js                        218.23 kB │ gzip: 68.14 kB
+dist/assets/index-fz-DuJ_D.js                               248.46 kB │ gzip: 68.58 kB
+✓ built in 207ms
+# Result: PASS (0 warnings, vendor chunks split cleanly)
+```
+
 ---
 
-## 2. Feature & Content Traceability Matrix
+## 2. Live Firebase Hosting & Browser Verification
 
-| Section / Domain | Resume Specification | Implementation Status | Evidence / File Path |
+| Check | Target | Status | Evidence |
 | :--- | :--- | :--- | :--- |
-| **Profile & Header** | 6+ Yrs DevOps, AEON onsite, direct contact channels | ✅ PASS | `src/contents/header.ts`, `src/sections/Header/index.tsx` |
-| **Current Position** | Assistant Manager - Cloud & Automation @ AEON Thana Sinsap (Aug 2026 - Present) | ✅ PASS | `src/contents/experience.ts`, `src/sections/Hero/index.tsx` |
-| **Previous Role** | Tech Soft Holding onsite AEON (Aug 2025 - 31 July 2026) | ✅ PASS | `src/contents/experience.ts` |
-| **Career History** | 5 complete enterprise milestones with architecture, leadership & landing zones | ✅ PASS | `src/contents/experience.ts` |
-| **Enterprise Projects** | 19 enterprise & AI projects (previously "Coming Soon") | ✅ PASS | `src/contents/project.ts`, `src/sections/Projects/index.tsx` |
-| **Interactive Projects** | Filter tabs (Cloud, AI, Infra, Security) + Deep-dive Architecture Modal | ✅ PASS | `src/sections/Projects/index.tsx`, `src/components/Modal/index.tsx` |
-| **Skills & Competencies** | 10 domains with 50+ toolsets (Cloud, Linux, HCI, Optical, AI) | ✅ PASS | `src/contents/skills.ts`, `src/sections/Skills/index.tsx` |
-| **Certifications & Training** | 17 accredited certifications + 20 courses + Lightbox viewer | ✅ PASS | `src/contents/certification.ts`, `src/sections/Certification/index.tsx` |
-| **Education** | RMUTP (Computer Science) & Pongsawadi (Business Computer) | ✅ PASS | `src/contents/education.ts` |
-| **Contact & References** | LINE, Phone, multi-emails, 3 executive references with copy triggers | ✅ PASS | `src/contents/contact.ts`, `src/sections/ContactUs/index.tsx` |
-| **Architecture & UX** | Modern Dark Engineering, glassmorphism, Inter font, custom scrollbar | ✅ PASS | `src/App.css`, `src/index.css`, `index.html` |
-| **Hero Profile Showcase** | Prominent portrait card, verified engineer chip, mission capsule | ✅ PASS | `src/sections/Hero/index.tsx`, `src/assets/phonepic.jpg` |
-| **Developer Console CLI** | macOS window controls, segmented tabs, interactive ZSH simulator | ✅ PASS | `src/sections/Hero/index.tsx`, `src/components/TerminalSimulator/` |
-| **GitHub Profile & Repos** | Updated all links to https://github.com/rapterxcode (@rapterxcode) | ✅ PASS | `src/contents/contact.ts`, `src/contents/header.ts`, `src/sections/Projects/` |
-| **Downloadable PDF CV** | ATS-compliant, executive 2-page vector PDF CV with photo & AEON Asst Mgr | ✅ PASS | `src/assets/Pasit-Chatcharoenkit-Resume.pdf`, `scripts/generate-resume.py` |
-| **SonarQube CLI Scanner** | Installed system-wide sonar-scanner 8.1.0 & configured npm run sonar | ✅ PASS | `sonar-project.properties`, `package.json` |
-
-| **Executive Bright Tone** | Modern bright/light mode default theme with soft shadows, radiant glows, clean typography | ✅ PASS | `src/App.css`, `src/index.css`, `src/App.tsx`, all sections |
-| **Theme Switcher** | Interactive Light / Dark mode toggle button in floating nav with localStorage persistence | ✅ PASS | `src/context/ThemeContext.ts`, `src/context/ThemeProvider.tsx`, `src/components/FloatingNav/` |
-| **Google Stitch Integration**| Connected via API Key to `@_davideast/stitch-mcp` (Doctor: 200 Healthy); created Stitch project `6886626315215279088`, generated screen `7a442b89d6da4436b9e16b376741a0b1`, and imported Plus Jakarta Sans, glass-surface tokens & color hierarchy | ✅ PASS | `.env.local` (git-ignored), `index.html`, `src/App.css`, `src/index.css` |
+| **Root HTTP & Caching** | `GET https://raptorxcode.web.app/` | ✅ PASS | `HTTP/2 200`, `cache-control: no-cache`, served via Bangkok CDN (`cache-bkk2280024-BKK`) |
+| **Immutable Asset Caching** | `GET /assets/index-BXTtb21v.css` | ✅ PASS | `HTTP/2 200`, `cache-control: public, max-age=31536000, immutable` |
+| **SPA Fallback Rewrite** | `GET /projects/demo` | ✅ PASS | `HTTP/2 200`, rewrites to `/index.html` |
+| **OWASP Security Headers** | All Hosting routes | ✅ PASS | Strict CSP (`script-src 'self'`, `object-src 'none'`, `frame-ancestors 'none'`), HSTS, `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy`, `Permissions-Policy` |
+| **Browser Console (Live)** | Playwright Chromium (`1440×900` & `375×812`) | ✅ PASS | `0 Errors, 0 Warnings` (zero CSP/font/runtime violations) |
+| **Responsive Layout** | Desktop (`1440px`) & Mobile (`375px`) | ✅ PASS | `overflowX: false` (`scrollWidth === innerWidth`); Light & Dark themes verified visually |
+| **Branch Preservation** | `origin/deploy-github-page` | ✅ PASS | Exact snapshot of legacy `main` (`81759b2`) pushed before refactor |
 
 ---
 
-## 3. Residual Risks & Operational Notes
+## 3. Operational & Rollback Notes
 
-- **Google Stitch Integration:** Live integration with Google Stitch MCP (`@_davideast/stitch-mcp`) succeeded using `STITCH_API_KEY`. Verified healthy (`200 OK`), project created (`Pasit Chatcharoenkit Portfolio - Executive Bright`, ID `6886626315215279088`), screen generated, and tokens (`Plus Jakarta Sans`, `JetBrains Mono`, `Inter`, `glass-surface` with `inset 0 1px 0 rgba(255, 255, 255, 0.9)`) integrated directly into the portfolio.
-- **Theme Persistence:** Theme choice (`light` | `dark`) is seamlessly stored in browser `localStorage` under key `portfolio-theme` and defaults to `"light"`.
-- **Resume PDF Regeneration:** A dedicated generator script is located at `scripts/generate-resume.py`. Run `npm run build:pdf` at any time to regenerate `src/assets/Pasit-Chatcharoenkit-Resume.pdf`.
-- **SonarQube Analysis:** To execute a scan against a local or remote SonarQube server, set `SONAR_TOKEN` and run `npm run sonar`.
-- **Deployment:** Ready to deploy to GitHub Pages anytime via `npm run deploy` (`gh-pages -d dist`).
-
+- **Live Deploy Command:** `npm run deploy:firebase` (`npx -y firebase-tools@latest deploy --only hosting --project raptorxcode`)
+- **Preview Channel Deploy:** `npm run deploy:preview` (`npx -y firebase-tools@latest hosting:channel:deploy preview --project raptorxcode --expires 7d`)
+- **Instant Firebase Rollback:** `npx -y firebase-tools@latest hosting:rollback --project raptorxcode`
+- **GitHub Actions CI/CD:** [.github/workflows/deploy.yml](.github/workflows/deploy.yml) runs automated `npm audit`, `lint`, `typecheck`, `test`, and `build` on `main`/PRs; configure repository secret `FIREBASE_SERVICE_ACCOUNT_RAPTORXCODE` to enable automated live deploys on pushes to `main`.
+- **Residual Note (Unverified Item):** Docker container rebuild (`docker compose up -d --build`) was **NOT VERIFIED** locally in this run (`Dockerfile` and `nginx.conf` were updated for root `/` parity with Firebase Hosting).
