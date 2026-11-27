@@ -1,49 +1,45 @@
-# CONTEXT.md: Pasit Chatcharoenkit Portfolio Redesign
+# CONTEXT.md: Pasit Chatcharoenkit Portfolio Architecture
 
 ## 1. Domain & Ubiquitous Language
 
-- **Portfolio Owner:** Pasit Chatcharoenkit (Senior Backend Full-Stack Developer / DevOps / Cloud / Infrastructure Engineer).
-- **Core Value Proposition:** 6+ years of engineering experience spanning on-premise infrastructure, virtualization (VMware, Proxmox), enterprise storage/networking, multi-cloud (AWS, GCP, Azure, Alibaba), container orchestration (Kubernetes, Docker), CI/CD automation, and modern AI-driven operations (n8n, FastAPI, pgvector, Ollama).
-- **Target Audience:** Technical recruiters, engineering managers, CTOs, and enterprise clients seeking a senior DevOps/Infrastructure/Backend engineer with proven hands-on delivery.
+- **Portfolio Owner:** Pasit Chatcharoenkit (Assistant Manager - Cloud & Automation @ AEON Thana Sinsap (Thailand) PCL).
+- **Core Value Proposition:** 6+ years of engineering experience spanning enterprise multi-cloud landing zones (AWS, GCP, Azure), architecture & team leadership, on-premise infrastructure/virtualization (VMware, Proxmox), enterprise storage/networking, container orchestration (Kubernetes, Docker), CI/CD & Ansible AWX automation, and modern AIOps (n8n, FastAPI, pgvector, Ollama).
+- **Target Audience:** Technical recruiters, engineering managers, CTOs, and enterprise clients seeking a senior cloud/DevOps/infrastructure engineering leader.
 - **Key Deliverables:**
-  - Complete portfolio redesign incorporating latest updates from `Pasit Chatcharoenkit-Resume-Update-13052026.docx`.
-  - Rich project showcase (19 enterprise/AI projects previously missing or marked "Coming Soon").
-  - Updated current role (Tech Soft Holding @ AEON Thana Sinsap - Linux System Administrator / Cloud & Automation).
-  - 17 professional certifications + 20 training courses with verified credentials and badges.
-  - Interactive, modern `/ui-ux-pro-max` developer-grade UI/UX.
+  - Complete portfolio showcasing 5 enterprise career milestones, 19 enterprise/AI projects, 10 skill domains (50+ toolsets), 17 accredited certifications, 20 training courses, and downloadable ATS-compliant vector PDF CV.
+  - Executive Bright (Light default) & Modern Dark Engineering dual theme with `localStorage` persistence and zero-FOUC strict-CSP initialization (`public/theme-init.js`).
+  - Accessible `shadcn/ui` (Radix UI + Tailwind CSS v4) component system with `lucide-react` icons.
 
 ---
 
-## 2. Technical Stack Audit & Reconciliation
+## 2. Technical Stack & Hosting Topology
 
-- **Current Repository Stack:**
-  - React 19 (`react` ^19.1.0, `react-dom` ^19.1.0)
-  - Vite (`vite` ^6.3.5)
-  - Tailwind CSS v4 (`@tailwindcss/vite` ^4.1.10)
-  - React Router (`react-router-dom` ^7.6.2)
-  - GitHub Pages deployment (`gh-pages` ^6.3.0) -> `https://rapterxcode.github.io/portfolio-rapterxcode`
-- **Ambiguity Identified:**
-  - User prompt mentions `refactor code react native`.
-  - Repository is pure React 19 Web (Vite + Tailwind).
-  - Resolution: Clarify via Gate A whether the user intends to maintain and elevate the React Web SPA on GitHub Pages or initialize a React Native / Expo application.
+- **Production Stack (`main` branch):**
+  - React `19.3.1` (`react`, `react-dom`) + TypeScript `5.9.3`
+  - Vite `8.4.0` (Rolldown + Oxc) + Tailwind CSS `4.3.5` (`@tailwindcss/vite`)
+  - UI System: `shadcn/ui` (`radix-ui`, `class-variance-authority`, `clsx`, `tailwind-merge`, `lucide-react`, `tw-animate-css`)
+  - Quality & Testing: ESLint `10.15.0` (`eslint-plugin-react-hooks` v7, `typescript-eslint` v8), Vitest `5.1.2` + Testing Library
+  - **Production Hosting:** GCP Firebase Hosting (`raptorxcode` / Project Number `31940467839`) -> `https://raptorxcode.web.app` & `https://raptorxcode.firebaseapp.com`
+- **Archived GitHub Pages Branch (`deploy-github-page`):**
+  - Preserves exact pre-Firebase snapshot (`81759b2`) configured with `base: '/portfolio-rapterxcode/'` and `gh-pages` deployment to `https://rapterxcode.github.io/portfolio-rapterxcode`.
+- **Architecture Decision Records:**
+  - [ADR-0001: Portfolio Redesign Alignment](./docs/adr/0001-portfolio-redesign-alignment.md)
+  - [ADR-0002: React 19.3, Zero-CVE Hardening, shadcn/ui & Firebase Hosting](./docs/adr/0002-react19-shadcn-firebase-hosting.md)
 
 ---
 
-## 3. UI/UX Design System Specification (`ui-ux-pro-max`)
+## 3. UI/UX Design System Specification (`shadcn/ui` + Executive Bright / Dark)
 
-- **Design Persona:** Modern Dark Engineering / High-Tech Utility (Inspired by Linear, Vercel, and Cloudflare console).
-- **Color Palette (60-30-10 Rule):**
-  - Background (60%): Deep Slate Canvas (`#090D16` / `#0F172A`)
-  - Surface & Cards (30%): Elevated Translucent Surface (`#1E293B` / `rgba(30, 41, 59, 0.7)` with `backdrop-blur-md`)
-  - Accent / Primary CTA (10%): Cyber Emerald (`#10B981`) and Electric Cyan (`#06B6D4`)
-  - Text Hierarchy: Primary `#F8FAFC`, Secondary `#94A3B8`, Muted `#64748B`
-  - Borders: Crisp hairline borders (`#1E293B` hover `#334155`)
+- **Design Persona:** Executive Bright (default) with Modern Dark Engineering toggle (Inspired by Linear, Vercel, Cloudflare Console, and Google Stitch tokens).
+- **Semantic Tokens (`src/index.css`):**
+  - Light Background: `#F8FAFC`, Foreground: `#0F172A`, Primary: `#0284C7`, Emerald Accent: `#059669`
+  - Dark Background: `#070A11`, Foreground: `#F8FAFC`, Primary: `#06B6D4`, Emerald Accent: `#10B981`
 - **Typography:**
-  - Display & Headings: `Inter` / `Plus Jakarta Sans`
-  - Code / Badges / Metrics: `JetBrains Mono` / `Fira Code`
-- **Interactive UX Components:**
-  - Two-Column Sticky Navigation on Desktop + Smooth Mobile Bottom/Drawer Nav.
-  - Category Filter for Projects (DevOps & Cloud, AI & Automation, Infrastructure & HCI, Security & Network).
-  - Certificate Lightbox/Modal viewer with direct Credly / verification links.
-  - Interactive Experience Timeline with expandable technical details and architecture bullet points.
-  - Quick Contact drawer with copyable LINE ID, phone, multi-email, and direct Resume PDF download.
+  - Display & Body: `Plus Jakarta Sans`, `Inter`
+  - Code / Badges / Metrics / CLI: `JetBrains Mono`
+- **Accessible Interactive Primitives (`src/components/ui/`):**
+  - Floating capsule navbar with `Avatar`, `Tooltip`, and Radix `Sheet` mobile drawer.
+  - Hero Profile & Interactive ZSH Terminal console powered by Radix `Tabs`.
+  - Filterable 19 Projects showcase (`Tabs` + `Input` with `useDeferredValue`) + Radix `Dialog` Architecture Deep-Dive modal.
+  - 17 Certifications + 20 Training Courses (`Tabs`) + Radix `Dialog` Certificate Lightbox viewer.
+  - Contact channels with clipboard copy feedback (`Tooltip`) and direct vector PDF CV download.
